@@ -1,0 +1,130 @@
+@import 'asset_angular_copy';
+  /*
+  https://stackoverflow.com/questions/41440998/how-can-i-use-custom-theme-palettes-in-angular
+  */
+  // PALETTE GENERATOR HERE: http://mcg.mbitson.com/ --Luca (24/01/2020)
+  $e4cure-primary: (
+    50 : #e1e3e5,
+    100 : #b3b9be,
+    200 : #808b93,
+    300 : #4d5d68,
+    400 : #273a47,
+    500 : #011727,
+    600 : #011423,
+    700 : #01111d,
+    800 : #010d17,
+    900 : #00070e,
+    A100 : #5196ff,
+    A200 : #1e78ff,
+    A400 : #005dea,
+    A700 : #0053d0,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    ));
+  $e4cure-accent: (50: #e5f4f3, 100: #bee4e1, 200: #93d3cd, 300: #67c1b8, 400: #47b3a9, 500: #26a69a, 600: #229e92, 700: #1c9588, 800: #178b7e, 900: #0d7b6c, A100: #adfff3, A200: #7affec, A400: #47ffe4, A700: #2dffe0,
+  contrast: (50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #000000, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000));
+  $e4cure-warn: (50: #ffe1e1, 100: #feb3b5, 200: #fe8184, 300: #fe4f53, 400: #fd292e, 500: #fd0309, 600: #fd0308, 700: #fc0206, 800: #fc0205, 900: #fc0102, A100: #ffffff, A200: #ffefef, A400: #ffbcbc, A700: #ffa2a2,
+              contrast: (50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000));
+  $e4cure-background: (50: #f9fcfe, 100: #f1f6fb, 200: #e7f1f9, 300: #ddebf7, 400: #d6e6f5, 500: #cfe2f3, 600: #cadff1, 700: #c3daef, 800: #bdd6ed, 900: #b2cfea, A100: #ffffff, A200: #ffffff, A400: #ffffff, A700: #ffffff,
+              contrast: (50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #000000, 500: #000000, 600: #000000, 700: #000000, 800: #000000, 900: #000000, A100: #000000, A200: #000000, A400: #000000, A700: #000000));
+  $e4cure-font-family: "Open Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+
+  
+  // SELECT THE THEME
+  $eward-font-family: $e4cure-font-family;
+  $eward-primary: $e4cure-primary;
+  $eward-warn: $e4cure-warn;
+  $eward-accent: $e4cure-accent;
+  $eward-background: $e4cure-background;
+
+// Very important: in SASS all maps are immutable objects, remove and merge
+// return stuff but they do not modify the original --Luca (28/01/2020)
+// PS: debugging sass is like trying to get your keys after they fell through a sewer grate
+// Would NOT recommend, but might be I'm just bad and there are easier ways.
+
+@function create-theme-background-from-palette($palette) {
+    @return (
+        status-bar: mat-color($palette, 400),
+        app-bar:    mat-color($palette, 300),
+        background: mat-color($palette, 200),
+        hover:      rgba(mat-contrast($palette, 100), 0.04),
+        card:       mat-color($palette, 100),
+        dialog:     mat-color($palette, 50),
+        disabled-button: rgba(mat-contrast($palette, 50), 0.12),
+        raised-button: mat-color($palette, 200),
+        focused-button: rgba(mat-contrast($palette, 200), 0.12),
+        selected-button: mat-color($palette, 300),
+        selected-disabled-button: mat-color($palette, 400),
+        disabled-button-toggle: mat-color($palette, 200),
+        unselected-chip: mat-color($palette, 300),
+        disabled-list-option: mat-color($palette, 200),
+        tooltip: mat-color($palette, 700),
+    );
+}
+
+@function get-foreground-from-background($palette) {
+    $base: mat-contrast($palette, 50);
+    $filler: mat-contrast($palette, 200);
+    @return (
+        base:              $base,
+        divider:           rgba($filler, 0.12),
+        dividers:          rgba($filler, 0.12),
+        disabled:          rgba($filler, 0.3),
+        disabled-button:   rgba($filler, 0.3),
+        disabled-text:     rgba($filler, 0.3),
+        hint-text:         rgba($filler, 0.3),
+        secondary-text:    rgba($filler, 0.5),
+        icon:              $filler,
+        icons:             $filler,
+        text:              $base,
+        slider-min:        $filler,
+        slider-off:        rgba($filler, 0.3),
+        slider-off-active: rgba($filler, 0.3),
+    );
+}
+
+@include mat-core;
+
+$app-primary: mat-palette($eward-primary);
+$app-accent: mat-palette($eward-accent);
+$app-warn: mat-palette($eward-warn);
+$app-background: create-theme-background-from-palette($eward-background);
+$app-foreground: get-foreground-from-background($eward-background);
+
+// instead of creating a theme with mat-light-theme like a sane person, we will create our own theme-creating function that lets us apply our own foreground and background palettes.
+@function create-eward-theme() {
+  @return (
+    primary: $app-primary,
+    accent: $app-accent,
+    warn: $app-warn,
+    is-dark: false,
+    foreground: $app-foreground,
+    background: $app-background,
+  );
+}
+
+$app-theme: create-eward-theme();
+
+@include angular-material-theme($app-theme);
+
+$primary: mat-color($app-primary, 500);
+$accent: mat-color($app-accent, 500);
+$warn: mat-color($app-warn, 500);
+
+
+
+

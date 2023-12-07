@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Configuratore</title>
+  <script>
+    (function() {
+        if (window.location.host.indexOf('localhost') !== -1 || window.location.host.indexOf('127.0.0.1') !== -1) {
+            document.write("<base href='/'/>");
+        } else {
+            document.write("<base href='/Admin/'>");
+        }
+    })();
+</script>
+  <!--<base href="/">-->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

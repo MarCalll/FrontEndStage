@@ -1,0 +1,610 @@
+@import "./styles_variables.scss";
+
+body, html, eward-root {
+  overflow: hidden;
+  height: 100%;
+  max-height: 100%;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  color: $background-color-contrast;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+// removing blue outline (not respecting round corner)
+button:focus {
+  outline: none !important;
+}
+
+// we remove the bootstrap row/col margin/dynamic duo, it's just an hassle. We need to be able to design the app layout precisely without
+// having to deal with this --Luca (24/01/2020)
+div.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2,
+.col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto,
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
+.col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10,
+.col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8,
+.col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+// instead of using bootstrap's built-in classes, we use our own, just in case we might want to tweak the spacing in the future.
+// it's highly unlikely and it would lead to countless issues, but well, you never know --Luca (24/01/2020)
+/* .m_0, .lg6sm12.m_0, [class*='col'].m_0 {
+  //@extend .m-0;
+}
+
+.m_1, .lg6sm12.m_1, [class*='col'].m_1 {
+  //@extend .m-1;
+}
+
+.m_x, .lg6sm12.m_x, [class*='col'].m_x {
+  //@extend .mx-1;
+}
+
+.m_y, .lg6sm12.m_y, [class*='col'].m_y {
+  //@extend .my-1;
+}
+
+.m_b, .lg6sm12.m_b, [class*='col'].m_b {
+  //@extend .mb-1;
+}
+
+.m_b2, .lg6sm12.m_b2, [class*='col'].m_b2 {
+  //@extend .mb-2;
+}
+
+.m_l, .lg6sm12.m_l, [class*='col'].m_l {
+  //@extend .ml-1;
+}
+
+.m_t, .lg6sm12.m_t, [class*='col'].m_t {
+  //@extend .mt-1;
+}
+
+.m_r, .lg6sm12.m_r, [class*='col'].m_r {
+  //@extend .mr-1;
+}
+
+.m_br, .lg6sm12.m_br, [class*='col'].m_br {
+  //@extend .mr-1, .mb-1;
+}
+
+.p_0, .lg6sm12.p_0, [class*='col'].p_0 {
+  //@extend .p-0;
+}
+
+.p_1, .lg6sm12.p_1, [class*='col'].p_1 {
+  //@extend .p-1;
+}
+
+.p_2, .lg6sm12.p_2, [class*='col'].p_2 {
+  //@extend .p-2;
+}
+
+.p_x, .lg6sm12.p_x, [class*='col'].p_x {
+  //@extend .px-1;
+}
+
+.p_y, .lg6sm12.p_y, [class*='col'].p_y {
+  //@extend .py-1;
+}
+
+.p_b, .lg6sm12.p_b, [class*='col'].p_b {
+  //@extend .pb-1;
+}
+
+.p_b2, .lg6sm12.p_b2, [class*='col'].p_b2 {
+  //@extend .pb-2;
+}
+
+.p_l, .lg6sm12.p_l, [class*='col'].p_l {
+  //@extend .pl-1;
+}
+
+.p_t, .lg6sm12.p_t, [class*='col'].p_t {
+  //@extend .pt-1;
+}
+
+.p_r, .lg6sm12.p_r, [class*='col'].p_r {
+  //@extend .pr-1;
+}
+
+.p_br, .lg6sm12.p_br, [class*='col'].p_br {
+  //@extend .pr-1, .pb-1;
+}
+
+
+// Custom commonly used classes with no weird behavior
+.lg6sm12 {
+  //@extend .col-lg-6, .col-sm-12;
+} */
+
+.overflow-y {
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.no-overflow {
+  overflow: hidden;
+}
+
+.h-1rem {
+  height: 1rem;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-grow-2 {
+  flex-grow: 2;
+}
+
+.larger-mat-menu {
+  width: 400px !important;
+  max-width: 400px !important;
+}
+
+.even-larger-mat-menu {
+  width: 600px !important;
+  max-width: 600px !important;
+}
+
+.auto-larger-mat-menu {
+  width: auto !important;
+  max-width: none !important;
+  min-width: 300px !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.cursor-default {
+  cursor: default !important;
+}
+
+.text-follows {
+  margin-right: 0.5rem;
+}
+
+.adherent {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.break-word {
+  word-break: break-all;
+}
+
+.white-space {
+  white-space: pre-wrap;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.text-new-line {
+  white-space: pre-wrap;
+  word-break: normal;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.centered-icon {
+  height: 20px;
+  width: 40px;
+}
+
+// Various material tweaks
+button.mat-button-small {
+  min-width: auto;
+  padding: 0 0.5rem;
+  line-height: 1rem;
+  min-height: 24px;
+}
+
+button.mat-button-tiny {
+  min-width: auto;
+  padding: 0 0.25rem;
+  line-height: 0.75rem;
+  min-height: 18px;
+}
+
+.mat-icon-button.mat-button-small {
+  width: 24px !important;
+  height: 24px !important;
+  padding: 0 !important;
+}
+
+.mat-icon-button.mat-button-small > span {
+  line-height: 24px !important;
+  width: 24px !important;
+}
+
+.mat-icon-button.mat-button-tiny {
+  width: 18px !important;
+  height: 18px !important;
+  padding: 0 !important;
+}
+
+.mat-icon-button.mat-button-tiny > span {
+  line-height: 18px !important;
+  width: 18px !important;
+}
+
+button.mat-button-big {
+  min-width: auto;
+  padding: 0 0.5rem;
+  min-height: 48px;
+}
+
+.mat-icon-button.mat-button-big {
+  width: 48px !important;
+  height: 48px !important;
+  padding: 0 !important;
+}
+
+.mat-icon-button.mat-button-big .mat-icon > svg {
+  height: 48px !important;
+  width: 48px !important;
+}
+
+mat-label, label {
+  font-family: $eward-font-family;
+}
+
+button > span.mat-button-wrapper > mat-icon {
+  line-height: 2rem;
+}
+
+// from https://dev.materialdesignicons.com/getting-started/angular
+button.mat-menu-item {
+  line-height: 24px !important;
+}
+
+a.mat-menu-item > mat-icon {
+  margin-bottom: 14px;
+}
+
+.mat-step-icon-content > .mat-icon {
+  height: 24px !important;
+  width: 24px !important;
+}
+
+.mat-step-icon-content > .mat-icon > svg {
+  vertical-align: inherit !important;
+}
+
+.mat-icon > svg {
+  height: 24px !important;
+  width: 24px !important;
+}
+
+.mat-icon.mat-icon-tiny {
+  height: 16px !important;
+  width: 16px !important;
+  & > svg {
+    height: 16px !important;
+    width: 16px !important;
+    margin-top: -6px !important;
+  }
+}
+
+// from https://dev.materialdesignicons.com/getting-started/angular end
+// scaling mat icons to 15px, 15/24 = 0.625
+mat-icon.mat-icon-small {
+  -webkit-transform: scale(0.63);
+  -moz-transform: scale(0.63);
+  -ms-transform: scale(0.63);
+  -o-transform: scale(0.63);
+  transform: scale(0.63);
+}
+
+.mat-form-field {
+  line-height: 1.3rem !important;
+}
+
+.mat-select-panel {
+  // background-color: $background-color;
+  overflow: hidden !important;
+  overflow-y: auto !important;
+}
+
+mat-card:not([class*='p_']).mat-card {
+  padding: 0 !important;
+}
+
+.mat-card-subtitle, .mat-card-title {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.mat-expansion-panel-header > .mat-expansion-indicator {
+  padding-right: 5px;
+}
+
+.mat-expansion-panel-header > .mat-expansion-indicator {
+  padding-left: 5px;
+}
+
+.mat-radio-label-content {
+  //@extend .px-1;
+}
+
+.mat-checkbox-label, .mat-radio-label-content {
+  padding-top: 1px;
+}
+
+.mat-option {
+  //@extend .p-0;
+  //@extend .m_x;
+}
+
+.mat-autocomplete-panel > .mat-option {
+  //@extend .m-0;
+  visibility: visible;
+}
+
+.mat-dialog-container {
+  //@extend .p-1;
+  border: 1px solid $background-color-contrast;
+  // background-color: $background-color;
+  overflow: hidden !important;
+}
+
+mat-form-field:not(.mat-form-field-disabled) .mat-form-field-outline {
+  // background-color: $hovered-color;
+  border-radius: 5px;
+}
+
+.mat-form-field-disabled .mat-form-field-prefix,
+.mat-form-field-disabled .mat-form-field-suffix {
+  color: rgba(0, 0, 0, 0.38)
+}
+
+.mat-form-field-outline {
+  background-color: $form-background-color !important;
+}
+
+// https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
+// --Luca (27/01/2020)
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  color: $background-color-contrast !important;
+  font-family: $eward-font-family !important;
+  -webkit-text-fill-color: $background-color-contrast !important;
+  -webkit-box-shadow: 0 0 0 1000px $form-background-color inset !important;
+  box-shadow: 0 0 0 1000px $form-background-color inset !important;
+}
+
+// reducing field size START
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  top: 1.7rem !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-label {
+  top: 1rem !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0.25rem 0 !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-suffix, .mat-form-field-appearance-outline .mat-form-field-prefix {
+  top: 0 !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-suffix > div.centered-icon > button,
+.mat-form-field-appearance-outline .mat-form-field-prefix > div.centered-icon > button {
+  top: -0.2em !important;
+}
+
+.mat-form-field-subscript-wrapper {
+  margin-top: 0.25em !important;
+}
+
+// reducing field size END
+
+// no red around, warn becomes accent
+.mat-raised-button.mat-warn {
+  background: $accent !important;
+}
+
+div.mat-expansion-panel-body {
+  padding: 0;
+}
+
+.mat-raised-button.mat-warn:disabled {
+  color: $disabled-color !important;
+}
+
+// same color for accent and primary
+// .mat-raised-button.mat-accent {
+//   background: $primary !important;
+// }
+
+
+.mat-menu-content:not(:empty) {
+  margin-right: 0.25rem !important;
+  margin-left: 0.25rem !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  // https://github.com/angular/material2/issues/11609
+  // this was found on github and fixes the resizing of the mat-select
+  // issue present in IE11 --Luca
+  .mat-select-panel {
+    min-width: inherit !important;
+  }
+  .cdk-overlay-pane {
+    display: block;
+  }
+}
+
+.il-form {
+  padding-bottom: 1.34375rem !important;
+}
+
+.il-form > .mat-radio-group > .mat-radio-button > .mat-radio-label {
+  margin-bottom: 0 !important;
+}
+
+.button-row > button, .button-row > a {
+  //@extend .mr-1;
+  //@extend .m_b;
+}
+
+.button-row-no-wrap {
+  //@extend .d-flex;
+  //@extend .flex-nowrap;
+}
+
+.button-row-no-wrap > button {
+  //@extend .mr-1;
+}
+
+.card-list > mat-card {
+  //@extend .px-1;
+}
+
+.datetimepicker-error {
+  //@extend .mat-form-field-subscript-wrapper;
+  margin-top: 2rem !important;
+  position: absolute !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.datetimepicker > div {
+  //@extend .row;
+  //@extend .align-items-baseline;
+  //@extend .flex-nowrap;
+}
+
+.fromtodate-error {
+  //@extend .mat-form-field-subscript-wrapper;
+  margin-top: 0.3rem !important;
+  position: absolute !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.generic-mat-error {
+  //@extend .mat-form-field-subscript-wrapper;
+  margin-top: 0.25rem !important;
+  position: relative !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.contains-icons {
+  min-height: 24px;
+}
+
+
+.noerrors .mat-form-field-wrapper {
+  padding-bottom: 0 !important;
+  margin: 0 !important;
+}
+
+.noerrors .mat-form-field-wrapper {
+  padding-bottom: 0 !important;
+  margin: 0 !important;
+}
+
+.noerrors-with-margin .mat-form-field-wrapper {
+  padding-bottom: 0 !important;
+}
+
+.mat-badge-medium {
+  margin-right: 0.75em !important;
+}
+
+.mat-pseudo-checkbox-checked::after {
+  box-sizing: content-box !important;
+}
+
+.snackbar-like-error {
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  top: -1rem;
+  left: 0;
+  display: flex;
+}
+
+
+// for the worklist's buttons' sake
+button.worklist-button > span.mat-button-wrapper {
+  //@extend .text-truncate;
+  display: block !important;
+}
+
+button.worklist-button > span.mat-button-wrapper > span {
+  //@extend .p_r;
+  display: inline !important;
+}
+
+.multiple-main-buttons > button > span.mat-button-wrapper > span.hiddenHovering {
+  //@extend .d-none;
+}
+
+.pdf-container > div {
+  background-color: darkgrey;
+}
+
+//reducing field size END
+
+.expandable-mat-menu > .mat-menu-content {
+  overflow: hidden;
+}
+
+.bg-card-striped {
+  //@extend .bg-card;
+}
+
+.bg-card-striped:nth-of-type(odd) {
+  background-color:rgba($background-color-contrast, 0.3) !important;
+}
+
+.discharge-checkbox > .mat-checkbox-layout {
+  margin-bottom: 0;
+}
+
+.border-right {
+  border-top: 0;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: rgba($background-color-contrast, 0.12);
+}
+
+.border-bottom {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba($background-color-contrast, 0.12);
+}

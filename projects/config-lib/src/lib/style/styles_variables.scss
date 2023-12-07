@@ -1,0 +1,109 @@
+//@import '~@angular/material/theming';
+
+// Very important: in SASS all maps are immutable objects, remove and merge
+// return stuff but they do not modify the original --Luca (28/01/2020)
+// PS: debugging sass is like trying to get your keys after they fell through a sewer grate
+// Would NOT recommend, but might be I'm just bad and there are easier ways.
+
+@function create-theme-background-from-palette($palette) {
+    @return (
+        status-bar: mat-color($palette, 400),
+        app-bar:    mat-color($palette, 300),
+        background: mat-color($palette, 200),
+        hover:      rgba(mat-contrast($palette, 100), 0.04),
+        card:       mat-color($palette, 100),
+        dialog:     mat-color($palette, 50),
+        disabled-button: rgba(mat-contrast($palette, 50), 0.12),
+        raised-button: mat-color($palette, 200),
+        focused-button: rgba(mat-contrast($palette, 200), 0.12),
+        selected-button: mat-color($palette, 300),
+        selected-disabled-button: mat-color($palette, 400),
+        disabled-button-toggle: mat-color($palette, 200),
+        unselected-chip: mat-color($palette, 300),
+        disabled-list-option: mat-color($palette, 200),
+        tooltip: mat-color($palette, 700),
+    );
+}
+
+@function get-foreground-from-background($palette) {
+    $base: mat-contrast($palette, 50);
+    $filler: mat-contrast($palette, 200);
+    @return (
+        base:              $base,
+        divider:           rgba($filler, 0.12),
+        dividers:          rgba($filler, 0.12),
+        disabled:          rgba($filler, 0.3),
+        disabled-button:   rgba($filler, 0.3),
+        disabled-text:     rgba($filler, 0.3),
+        hint-text:         rgba($filler, 0.3),
+        secondary-text:    rgba($filler, 0.5),
+        icon:              $filler,
+        icons:             $filler,
+        text:              $base,
+        slider-min:        $filler,
+        slider-off:        rgba($filler, 0.3),
+        slider-off-active: rgba($filler, 0.3),
+    );
+}
+
+// custom vars
+
+$left-navbar-width: 50px;
+
+$graphic-line-height: 25px;
+
+$female-color: #db3180;
+$male-color: #0066ff;
+$neutral-gender-color: #560378;
+
+@include mat-core;
+
+$app-primary: mat-palette($eward-primary);
+$app-accent: mat-palette($eward-accent);
+$app-warn: mat-palette($eward-warn);
+$app-background-palette: mat-palette($eward-background);
+$app-background: create-theme-background-from-palette($eward-background);
+$app-foreground: get-foreground-from-background($eward-background);
+
+// instead of creating a theme with mat-light-theme like a sane person, we will create our own theme-creating function that lets us apply our own foreground and background palettes.
+@function create-eward-theme() {
+  @return (
+    primary: $app-primary,
+    accent: $app-accent,
+    warn: $app-warn,
+    is-dark: false,
+    foreground: $app-foreground,
+    background: $app-background,
+  );
+}
+
+$app-theme: create-eward-theme();
+
+@include angular-material-theme($app-theme);
+
+$primary: mat-color($app-primary, 500);
+$primary-contrast: mat-contrast($app-primary, 500);
+$accent: mat-color($app-accent, 500);
+$accent-contrast: mat-contrast($app-accent, 500);
+$warn: mat-color($app-warn, 500);
+$warn-contrast: mat-contrast($app-warn, 500);
+
+$deep-background-color: mat-color($app-accent, 900);
+$deep-background-color-contrast: mat-contrast($app-accent, 900);
+$background-color: map-get($app-background, background);
+$background-color-contrast: map-get($app-foreground, base);
+$form-background-color: mat-color($app-background-palette, 300);
+
+$card-color: map-get($app-background, card);
+$selected-color: mat-color($app-warn, 300);
+$error-color: mat-color($app-warn, 700);
+$tile-has-warnings-color: mat-color($app-warn, 900);
+$noinfo-color: mat-color($mat-grey, 500);
+$tile-no-warnings-color: mat-color($mat-grey, 400);
+$disabled-color: mat-color($mat-grey, 500);
+$header-color: mat-color($app-primary, 900);
+$header-color-contrast: mat-contrast($app-primary, 900);
+$external-frame-color: mat-color($app-accent, 900);
+$external-frame-color-contrast: mat-contrast($app-accent, 900);
+$expandable-background-color: mat-color($app-background-palette, 100);
+$hovered-color: rgba($background-color-contrast, 0.12);
