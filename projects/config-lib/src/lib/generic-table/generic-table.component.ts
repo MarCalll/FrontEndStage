@@ -3,12 +3,13 @@ import { MatSort, MatTableDataSource } from '@angular/material';
 
 export interface PeriodicElement {
   name: string;
+  surname: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {name: 'Hydrogen'},
-  {name: 'Helium'},
-  {name: 'Lithium'},
+  {name: 'Hydrogen',surname:'H'},
+  {name: 'Helium',surname:'He'},
+  {name: 'Lithium',surname:''},
 ];
 
 @Component({
@@ -17,7 +18,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./generic-table.component.scss']
 })
 export class GenericTableComponent implements OnInit {
-  displayedColumns: string[] = ['name','actions'];
+  displayedColumns: string[] = ['name','surname','actions'];
   arrayDB = new MatTableDataSource(ELEMENT_DATA);
 
   @ViewChild(MatSort) sort: MatSort;
