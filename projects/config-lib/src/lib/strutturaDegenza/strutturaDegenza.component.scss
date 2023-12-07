@@ -1,0 +1,40 @@
+.example-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .select-container {
+    margin-right: 10px;
+  }
+  
+  mat-form-field {
+    width: 150px;
+  }
+  
+
+  .outer-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .example-container {
+    display: flex;
+  }
+  
+  .select-container {
+    margin-right: 10px;
+  }
+  
+  mat-form-field {
+    width: 300px; 
+  }
+  
+  .action-buttons {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+    right: 10px;
+  }

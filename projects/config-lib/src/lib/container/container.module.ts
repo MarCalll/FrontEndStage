@@ -9,6 +9,10 @@ import { ContainerComponent } from './container.component';
 import { GenericTableComponent } from '../generic-table/generic-table.component';
 import { EditButtonComponent } from '../tasti/editButton/editButton.component';
 import { DeleteButtonComponent } from '../tasti/deleteButton/deleteButton.component';
+import { StrutturaDegenzaComponent } from '../strutturaDegenza/strutturaDegenza.component';
+import { AddRoomButtonComponent } from '../tasti/addRoomButton/addRoomButton.component';
+import { BedManagementButtonComponent } from '../tasti/bedManagementButton/bedManagementButton.component';
+import { SearchButtonComponent } from '../tasti/searchButton/searchButton.component';
 
 @NgModule({
   imports: [
@@ -29,7 +33,11 @@ import { DeleteButtonComponent } from '../tasti/deleteButton/deleteButton.compon
     ContainerComponent,
     GenericTableComponent,
     EditButtonComponent,
-    DeleteButtonComponent
+    DeleteButtonComponent,
+    StrutturaDegenzaComponent,
+    AddRoomButtonComponent,
+    BedManagementButtonComponent,
+    SearchButtonComponent
   ]
   })
   
