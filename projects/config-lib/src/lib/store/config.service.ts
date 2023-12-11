@@ -1,6 +1,19 @@
 import { Injectable, isDevMode } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { BehaviorSubject } from "rxjs";
+import { MatTableDataSource } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
+
+interface stanzeInterface {
+  id : number;
+  numeroStanza: string;
+  display:string;
+  ordine:string;
+  letti:string;
+  digenza:string;
+  struttura:string;
+  pino: string;
+}
 
 
 @Injectable()
@@ -8,11 +21,18 @@ export class ConfigService {
 
   idForDetail$ = new BehaviorSubject<string>(null);
 
-  constructor (protected store: Store<any>) {
+  tempContentDB : stanzeInterface[] = [];
+  tempDataSource = new MatTableDataSource<stanzeInterface>();
+
+  filteredTempContentDB: stanzeInterface[] = [];
+  c = 0;
+
+  constructor (protected store: Store<any>,private http: HttpClient) {
   }
 
   getServerAddress(serverUrl: string): string {
     let firstPartPath = '';
+    
     if (serverUrl) {
       if (isDevMode()) {
         firstPartPath = '/Admin';
@@ -28,10 +48,39 @@ export class ConfigService {
     return serverRest;
   }
 
+  filterDB(colonna:string,valore:string) {
+    if (valore != "") {
+      this.filteredTempContentDB = this.tempContentDB.filter(ele => ele[colonna] === valore)
+     this.tempDataSource.data = this.filteredTempContentDB;
+      
+    } else {
+      this.tempDataSource.data = this.tempContentDB;
+   }
+  }
+
   editButton() {
     console.log("edit funge")
   }
-  
+
+  loadDB(path:string) {
+    this.http.get<stanzeInterface[]>(path).subscribe(data => {
+      this.tempContentDB = data;
+      this.tempDataSource.data = this.tempContentDB;
+    });
+
+  } 
+
+//  filterDB(colonna:string,valore:string) {
+//    if (valore != "") {
+//      this.filteredTempContentDB = this.tempContentDB.filter(ele => ele[colonna] === valore)
+//      this.tempDataSource.data = this.filteredTempContentDB;
+//      
+//    } else {
+//      this.tempDataSource.data = this.tempContentDB;
+//   }
+//  }
+
+
 
 
 }

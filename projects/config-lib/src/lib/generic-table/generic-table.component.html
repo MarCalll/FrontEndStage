@@ -1,45 +1,25 @@
-<p></p>
+<p>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
- 
- <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef>ID</th>
-    <td mat-cell *matCellDef="let stanza">{{ stanza.id }}</td>
-  </ng-container>
- 
- 
-  <ng-container matColumnDef="numeroStanza">
-    <th mat-header-cell *matHeaderCellDef>Numero Stanza</th>
-    <td mat-cell *matCellDef="let stanza">{{ stanza.numeroStanza }}</td>
-  </ng-container>
- 
- 
-  <ng-container matColumnDef="display">
-    <th mat-header-cell *matHeaderCellDef>Display</th>
-    <td mat-cell *matCellDef="let stanza">{{ stanza.display }}</td>
-  </ng-container>
- 
- 
-  <ng-container matColumnDef="ordine">
-    <th mat-header-cell *matHeaderCellDef>Ordine</th>
-    <td mat-cell *matCellDef="let stanza">{{ stanza.ordine }}</td>
-  </ng-container>
- 
- 
-  <ng-container matColumnDef="letti">
-    <th mat-header-cell *matHeaderCellDef>Letti</th>
-    <td mat-cell *matCellDef="let stanza">{{ stanza.letti }}</td>
-  </ng-container>
- 
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let user">
-      <config-editButton ></config-editButton>
-      <config-deleteButton></config-deleteButton>
+
+  <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+    <th mat-header-cell *matHeaderCellDef>
+      <a *ngIf="column != 'actions'">{{ column }}</a>
+    </th>
+
+    <td mat-cell *matCellDef="let element">
+
+      <ng-container *ngIf="column == 'actions'; else notActionsColumn">
+        <a class="buttons"><config-editButton></config-editButton><config-deleteButton></config-deleteButton></a>
+      </ng-container>
+
+      <ng-template #notActionsColumn>
+        {{element[column]}}
+      </ng-template>
+
     </td>
   </ng-container>
- 
+  
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
  
 </table>
- 

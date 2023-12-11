@@ -1,14 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatTableDataSource } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
+import { ConfigService } from '../store/config.service';
  
-interface Stanza {
-  id: number;
-  numeroStanza: string;
-  display: string;
-  ordine: string;
-  letti: string;
-}
+
 @Component({
   selector: 'config-generic-table',
   templateUrl: './generic-table.component.html',
@@ -16,36 +11,19 @@ interface Stanza {
 })
 
 export class GenericTableComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'numeroStanza', 'display', 'ordine', 'letti', 'actions'];
 
-  dataSource = new MatTableDataSource<Stanza>();
+  constructor(private http: HttpClient, private service: ConfigService) {}
 
-  stanze: Stanza[] = [];
+  @Input() displayedColumns: string[] = [];
+  @Input() path: string;
 
-  showAddForm: boolean = false;
-  
-  newStanza: Stanza = {
-    id: 0,
-    numeroStanza: '',
-    display: '',
-    ordine: '',
-    letti: ''
-  };
+  ngOnInit() {
+    this.service.loadDB(this.path);
+    this.displayedColumns.push('actions')
+  }
+
+  dataSource = this.service.tempDataSource;
 
   @ViewChild(MatSort) sort: MatSort;
- 
-  constructor(private http: HttpClient) {}
- 
-  ngOnInit() {
-    this.loadStanze();
-  }
- 
-  loadStanze() {
-    this.http.get<Stanza[]>('http://localhost:8080/api/stanze').subscribe(data => {
-      this.stanze = data;
-      this.dataSource.data = this.stanze;
-    });
-  } 
-
  
 }

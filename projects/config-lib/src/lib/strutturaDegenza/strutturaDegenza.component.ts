@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../store/config.service';
 
 @Component({
   selector: 'config-strutturaDegenza',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StrutturaDegenzaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service :ConfigService) { }
 
   ngOnInit() {
+  }
+
+  setFilter(colonna:string,valore:any) {
+    this.service.filterDB(colonna,valore);
   }
 
 }
