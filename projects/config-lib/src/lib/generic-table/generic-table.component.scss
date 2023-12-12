@@ -1,4 +1,4 @@
-table {
+  table {
     width: 100%;
   }
   
@@ -10,3 +10,17 @@ table {
   td, th, a {
     width: auto;
   }
+
+  .cell {
+    width: 150px;
+  }
+
+  .form {
+    width: auto;
+  }
+
+  
+  .field {
+    width: 75px;
+  }
+

@@ -12,7 +12,6 @@ interface stanzeInterface {
   letti:string;
   digenza:string;
   struttura:string;
-  pino: string;
 }
 
 
@@ -22,12 +21,12 @@ export class ConfigService {
   idForDetail$ = new BehaviorSubject<string>(null);
 
   path = "";
-  tempContentDB : stanzeInterface[] = [];
-  tempDataSource = new MatTableDataSource<stanzeInterface>();
+  tempContentDB : any[] = [];
+  tempDataSource = new MatTableDataSource<any>();
 
   selectedDegenza = "";
   selectedStruttura = "";
-  filteredTempContentDB : stanzeInterface[] = [];
+  filteredTempContentDB : any[] = [];
 
   constructor (protected store: Store<any>,private http: HttpClient) {
   }
@@ -66,20 +65,64 @@ export class ConfigService {
   }
 
   loadDB() {
-    this.http.get<stanzeInterface[]>(this.path).subscribe(data => {
+    this.http.get<any[]>(this.path).subscribe(data => {
       this.tempContentDB = data;
       this.tempDataSource.data = this.tempContentDB;
     });
 
   } 
 
-  deleteDB(elemento: stanzeInterface) { 
-    this.http.delete(this.path + `/${elemento.id}`).subscribe(() => {
-      this.tempContentDB = this.tempContentDB.filter(ele => ele.id !== elemento.id);
+  deleteDB(item: any) { 
+    this.http.delete(this.path + `/${item.id}`).subscribe(() => {
+      this.tempContentDB = this.tempContentDB.filter(ele => ele.id !== item.id);
       this.tempDataSource.data = this.tempContentDB;
     });
   }
 
+  editDB(item: any) {
 
+    const editedItem: any = {
+      id: item.id,  
+      numeroStanza: item.numeroStanza,  
+      display: item.display,      
+      ordine: item.ordine,        
+      letti: item.letti,
+      digenza: item.digenza,
+      struttura: item.struttura,  
+    };
+    this.uploadDB(editedItem);
+  }
+
+  uploadDB(item: any) {
+    if (item && item.id) {
+      console.log('Dati inviati nella richiesta:', item);
+  
+      this.http.put<any>(this.path + `/${item.id}`, item)
+        .subscribe(response => {
+          const index = this.tempContentDB.findIndex(s => s.id === item.id);
+          if (index !== -1) {
+            this.tempContentDB[index] = response;
+            this.tempDataSource.data = this.tempContentDB;
+          }
+        });
+    } else {
+      console.error('L\'oggetto stanza da aggiornare è indefinito o non ha un ID.');
+    }
+  }
+
+
+ /* saveDB(element: stanzeInterface) {
+    console.log('Aggiunta stanza:', element);
+    this.http.post<stanzeInterface>(this.path, element).subscribe(
+      response => {
+        console.log('Risposta dal server:', response);
+        this.tempContentDB.push(response);
+        this.tempDataSource.data = this.tempContentDB;
+      },
+      error => {
+        console.error('Errore durante la richiesta POST:', error);
+       
+      }
+    );*/
 
 }

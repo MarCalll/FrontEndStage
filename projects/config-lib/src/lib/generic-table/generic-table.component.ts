@@ -17,10 +17,28 @@ export class GenericTableComponent implements OnInit {
   @Input() displayedColumns: string[] = [];
   @Input() path: string;
 
+  editModeToggled = false
+
   ngOnInit() {
     this.service.path = this.path
+    this.loadTableData();
+  }
+
+  loadTableData() {
     this.service.loadDB();
-    this.displayedColumns.push('actions')
+    this.displayedColumns.push('actions');
+  }
+
+  onEdit(item: any) {
+    item.isEdit = !item.isEdit;
+  }
+
+  onDelete(item:any) {
+    this.service.deleteDB(item)
+  }
+
+  onSave(item:any) {
+    this.service.editDB(item)
   }
 
   dataSource = this.service.tempDataSource;

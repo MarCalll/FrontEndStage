@@ -13,6 +13,8 @@ import { StrutturaDegenzaComponent } from '../strutturaDegenza/strutturaDegenza.
 import { AddRoomButtonComponent } from '../tasti/addRoomButton/addRoomButton.component';
 import { BedManagementButtonComponent } from '../tasti/bedManagementButton/bedManagementButton.component';
 import { SearchButtonComponent } from '../tasti/searchButton/searchButton.component';
+import { SaveButtonComponent } from '../tasti/saveButton/saveButton.component';
+import { CancelButtonComponent } from '../tasti/cancelButton/cancelButton.component';
 
 @NgModule({
   imports: [
@@ -37,7 +39,9 @@ import { SearchButtonComponent } from '../tasti/searchButton/searchButton.compon
     StrutturaDegenzaComponent,
     AddRoomButtonComponent,
     BedManagementButtonComponent,
-    SearchButtonComponent
+    SearchButtonComponent,
+    SaveButtonComponent,
+    CancelButtonComponent
   ]
   })
   
