@@ -3,9 +3,9 @@
     <div class="select-container">
       <mat-form-field>
         <mat-select placeholder="Struttura">
-          <mat-option value="option" (click) = "setFilter('struttura','')">-</mat-option>
-          <mat-option value="option" (click) = "setFilter('struttura','Bari')">Bari</mat-option>
-          <mat-option value="option" (click) = "setFilter('struttura','Trani')">Trani</mat-option>
+          <mat-option value="option" (click) = "setSelectedStruttura('')">-</mat-option>
+          <mat-option value="option" (click) = "setSelectedStruttura('Bari')">Bari</mat-option>
+          <mat-option value="option" (click) = "setSelectedStruttura('Trani')">Trani</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -13,9 +13,9 @@
     <div class="select-container">
       <mat-form-field>
         <mat-select placeholder="Degenza">
-          <mat-option value="option" (click) = "setFilter('digenza','')">-</mat-option>
-          <mat-option value="option" (click) = "setFilter('digenza','Chirurgia')">Chirurgia</mat-option>
-          <mat-option value="option" (click) = "setFilter('digenza','Radiologia')">Radiologia</mat-option>
+          <mat-option value="option" (click) = "setSelectedDegenza('')">-</mat-option>
+          <mat-option value="option" (click) = "setSelectedDegenza('Chirurgia')">Chirurgia</mat-option>
+          <mat-option value="option" (click) = "setSelectedDegenza('Radiologia')">Radiologia</mat-option>
         </mat-select>
       </mat-form-field>
     </div>

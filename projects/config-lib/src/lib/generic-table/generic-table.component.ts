@@ -12,13 +12,14 @@ import { ConfigService } from '../store/config.service';
 
 export class GenericTableComponent implements OnInit {
 
-  constructor(private http: HttpClient, private service: ConfigService) {}
+  constructor(private http: HttpClient, protected service: ConfigService) {}
 
   @Input() displayedColumns: string[] = [];
   @Input() path: string;
 
   ngOnInit() {
-    this.service.loadDB(this.path);
+    this.service.path = this.path
+    this.service.loadDB();
     this.displayedColumns.push('actions')
   }
 

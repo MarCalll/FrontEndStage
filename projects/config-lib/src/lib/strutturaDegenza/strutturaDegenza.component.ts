@@ -13,8 +13,15 @@ export class StrutturaDegenzaComponent implements OnInit {
   ngOnInit() {
   }
 
-  setFilter(colonna:string,valore:any) {
-    this.service.filterDB(colonna,valore);
+  setSelectedStruttura(struttura:string) {
+    this.service.selectedStruttura = struttura;
+    this.service.filterStrutturaDegenza();
   }
+
+  setSelectedDegenza(degenza:string) {
+    this.service.selectedDegenza = degenza;
+    this.service.filterStrutturaDegenza();
+  }
+
 
 }

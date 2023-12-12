@@ -21,11 +21,13 @@ export class ConfigService {
 
   idForDetail$ = new BehaviorSubject<string>(null);
 
+  path = "";
   tempContentDB : stanzeInterface[] = [];
   tempDataSource = new MatTableDataSource<stanzeInterface>();
 
-  filteredTempContentDB: stanzeInterface[] = [];
-  c = 0;
+  selectedDegenza = "";
+  selectedStruttura = "";
+  filteredTempContentDB : stanzeInterface[] = [];
 
   constructor (protected store: Store<any>,private http: HttpClient) {
   }
@@ -48,38 +50,35 @@ export class ConfigService {
     return serverRest;
   }
 
-  filterDB(colonna:string,valore:string) {
-    if (valore != "") {
-      this.filteredTempContentDB = this.tempContentDB.filter(ele => ele[colonna] === valore)
-     this.tempDataSource.data = this.filteredTempContentDB;
-      
+  filterStrutturaDegenza() {
+    if (this.selectedStruttura !== "" || this.selectedDegenza !== "") {
+      this.filteredTempContentDB = this.tempContentDB.filter(ele =>
+         (this.selectedStruttura === "" || ele['struttura'] === this.selectedStruttura) && (this.selectedDegenza === "" || ele['digenza'] === this.selectedDegenza)
+      );
+      this.tempDataSource.data = this.filteredTempContentDB;
     } else {
       this.tempDataSource.data = this.tempContentDB;
-   }
+    }
   }
 
   editButton() {
     console.log("edit funge")
   }
 
-  loadDB(path:string) {
-    this.http.get<stanzeInterface[]>(path).subscribe(data => {
+  loadDB() {
+    this.http.get<stanzeInterface[]>(this.path).subscribe(data => {
       this.tempContentDB = data;
       this.tempDataSource.data = this.tempContentDB;
     });
 
   } 
 
-//  filterDB(colonna:string,valore:string) {
-//    if (valore != "") {
-//      this.filteredTempContentDB = this.tempContentDB.filter(ele => ele[colonna] === valore)
-//      this.tempDataSource.data = this.filteredTempContentDB;
-//      
-//    } else {
-//      this.tempDataSource.data = this.tempContentDB;
-//   }
-//  }
-
+  deleteDB(elemento: stanzeInterface) { 
+    this.http.delete(this.path + `/${elemento.id}`).subscribe(() => {
+      this.tempContentDB = this.tempContentDB.filter(ele => ele.id !== elemento.id);
+      this.tempDataSource.data = this.tempContentDB;
+    });
+  }
 
 
 

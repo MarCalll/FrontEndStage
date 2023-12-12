@@ -9,7 +9,7 @@
     <td mat-cell *matCellDef="let element">
 
       <ng-container *ngIf="column == 'actions'; else notActionsColumn">
-        <a class="buttons"><config-editButton></config-editButton><config-deleteButton></config-deleteButton></a>
+        <a class="buttons"><config-editButton></config-editButton><config-deleteButton (click)="this.service.deleteDB(element)"></config-deleteButton></a>
       </ng-container>
 
       <ng-template #notActionsColumn>
