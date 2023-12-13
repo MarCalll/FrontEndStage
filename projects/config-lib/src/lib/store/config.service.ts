@@ -29,6 +29,8 @@ export class ConfigService {
   filteredTempContentDB : any[] = [];
   addState:boolean;
 
+  whatsToggled = '';
+
 
   constructor (protected store: Store<any>,private http: HttpClient) {
   }

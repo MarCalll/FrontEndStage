@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ConfigService } from '../store/config.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class ContainerComponent implements OnInit {
 
   
 
-  constructor() { 
+  constructor(protected service:ConfigService) { 
 
   }
 

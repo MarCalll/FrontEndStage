@@ -13,4 +13,13 @@ export class SearchButtonComponent implements OnInit {
   ngOnInit() {
   }
 
+  searchToggled() {
+    if (this.service.whatsToggled != "searchBar" ) {
+      this.service.whatsToggled = "searchBar";
+    } else {
+      this.service.whatsToggled = ""
+    }
+    
+  }
+
 }

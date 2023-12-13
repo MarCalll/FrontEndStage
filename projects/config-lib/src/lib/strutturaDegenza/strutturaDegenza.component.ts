@@ -8,7 +8,7 @@ import { ConfigService } from '../store/config.service';
 })
 export class StrutturaDegenzaComponent implements OnInit {
 
-  constructor(private service :ConfigService) { }
+  constructor(protected service :ConfigService) { }
 
   ngOnInit() {
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../../store/config.service';
 
 @Component({
   selector: 'config-addRoomButton',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddRoomButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected service:ConfigService) { }
 
   ngOnInit() {
+  }
+
+  toggleAddBar() {
+    if (this.service.whatsToggled != "addBar" ) {
+      this.service.whatsToggled = "addBar";
+    } else {
+      this.service.whatsToggled = ""
+    }
+    
   }
 
 }

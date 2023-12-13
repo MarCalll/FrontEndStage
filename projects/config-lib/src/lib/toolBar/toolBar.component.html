@@ -1,0 +1,16 @@
+<div [ngSwitch]="service.whatsToggled">
+
+  <div *ngSwitchCase="'addBar'">
+    <config-addBar></config-addBar>
+  </div>
+  
+  <div *ngSwitchCase="'searchBar'">
+    <config-searchBar></config-searchBar>
+  </div>
+
+  <div *ngSwitchDefault>
+    <p></p>
+  </div>
+
+</div>
+

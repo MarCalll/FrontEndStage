@@ -16,6 +16,9 @@ import { BedManagementButtonComponent } from '../tasti/bedManagementButton/bedMa
 import { SearchButtonComponent } from '../tasti/searchButton/searchButton.component';
 import { SaveButtonComponent } from '../tasti/saveButton/saveButton.component';
 import { CancelButtonComponent } from '../tasti/cancelButton/cancelButton.component';
+import { SearchBarComponent } from '../searchBar/searchBar.component';
+import { ToolBarComponent } from '../toolBar/toolBar.component';
+import { AddBarComponent } from '../addBar/addBar.component';
 
 @NgModule({
   imports: [
@@ -43,7 +46,10 @@ import { CancelButtonComponent } from '../tasti/cancelButton/cancelButton.compon
     BedManagementButtonComponent,
     SearchButtonComponent,
     SaveButtonComponent,
-    CancelButtonComponent
+    CancelButtonComponent,
+    SearchBarComponent,
+    ToolBarComponent,
+    AddBarComponent
   ]
   })
   
