@@ -10,6 +10,7 @@ export class AddBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

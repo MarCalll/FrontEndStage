@@ -18,7 +18,7 @@
           
           <ng-template #isEditing>
             <config-saveButton (click)="onSave(element)"></config-saveButton>
-            <config-cancelButton (click)="onEdit(element)"></config-cancelButton>
+            <config-cancelButton (click)="onCancel(element)"></config-cancelButton>
           </ng-template>
 
         </ng-container>
@@ -34,8 +34,12 @@
         </ng-template>
 
         <ng-template #notEdited>
-            <div>{{element[column]}}</div>
+            <div *ngIf="!element.counter; else backup">{{element[column]}}</div> 
         </ng-template>
+
+        <ng-template #backup>
+          <div>{{itembackup[column]}}</div>
+      </ng-template>
 
       </td>
     </ng-container>
