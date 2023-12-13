@@ -10,7 +10,7 @@ interface stanzeInterface {
   display:string;
   ordine:string;
   letti:string;
-  digenza:string;
+  degenza:string;
   struttura:string;
 }
 
@@ -27,6 +27,8 @@ export class ConfigService {
   selectedDegenza = "";
   selectedStruttura = "";
   filteredTempContentDB : any[] = [];
+  addState:boolean;
+
 
   constructor (protected store: Store<any>,private http: HttpClient) {
   }
@@ -52,7 +54,7 @@ export class ConfigService {
   filterStrutturaDegenza() {
     if (this.selectedStruttura !== "" || this.selectedDegenza !== "") {
       this.filteredTempContentDB = this.tempContentDB.filter(ele =>
-         (this.selectedStruttura === "" || ele['struttura'] === this.selectedStruttura) && (this.selectedDegenza === "" || ele['digenza'] === this.selectedDegenza)
+         (this.selectedStruttura === "" || ele['struttura'] === this.selectedStruttura) && (this.selectedDegenza === "" || ele['degenza'] === this.selectedDegenza)
       );
       this.tempDataSource.data = this.filteredTempContentDB;
     } else {
@@ -80,17 +82,7 @@ export class ConfigService {
   }
 
   editDB(item: any) {
-
-    const editedItem: any = {
-      id: item.id,  
-      numeroStanza: item.numeroStanza,  
-      display: item.display,      
-      ordine: item.ordine,        
-      letti: item.letti,
-      digenza: item.digenza,
-      struttura: item.struttura,  
-    };
-    this.uploadDB(editedItem);
+    this.uploadDB(item);
   }
 
   uploadDB(item: any) {
@@ -109,20 +101,5 @@ export class ConfigService {
       console.error('L\'oggetto stanza da aggiornare è indefinito o non ha un ID.');
     }
   }
-
-
- /* saveDB(element: stanzeInterface) {
-    console.log('Aggiunta stanza:', element);
-    this.http.post<stanzeInterface>(this.path, element).subscribe(
-      response => {
-        console.log('Risposta dal server:', response);
-        this.tempContentDB.push(response);
-        this.tempDataSource.data = this.tempContentDB;
-      },
-      error => {
-        console.error('Errore durante la richiesta POST:', error);
-       
-      }
-    );*/
 
 }

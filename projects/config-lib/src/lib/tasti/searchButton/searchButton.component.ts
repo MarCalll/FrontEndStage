@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../../store/config.service';
 
 @Component({
   selector: 'config-searchButton',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected service:ConfigService) { }
 
   ngOnInit() {
   }

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 
 import { MaterialModule } from '../shared/material.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { ContainerComponent } from './container.component';
 import { GenericTableComponent } from '../generic-table/generic-table.component';
@@ -21,6 +22,7 @@ import { CancelButtonComponent } from '../tasti/cancelButton/cancelButton.compon
     CommonModule,
     SharedModule,
     MaterialModule,
+    MatPaginatorModule,
     RouterModule.forChild([
       {
         path: 'container',

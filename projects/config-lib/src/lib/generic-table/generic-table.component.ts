@@ -1,9 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { MatSort, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatSort } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import { ConfigService } from '../store/config.service';
  
-
 @Component({
   selector: 'config-generic-table',
   templateUrl: './generic-table.component.html',
@@ -16,12 +15,16 @@ export class GenericTableComponent implements OnInit {
 
   @Input() displayedColumns: string[] = [];
   @Input() path: string;
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  editModeToggled = false
+  dataSource = this.service.tempDataSource;
 
   ngOnInit() {
     this.service.path = this.path
     this.loadTableData();
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   loadTableData() {
@@ -30,7 +33,7 @@ export class GenericTableComponent implements OnInit {
   }
 
   onEdit(item: any) {
-    item.isEdit = !item.isEdit;
+    item.editState = !item.editState;
   }
 
   onDelete(item:any) {
@@ -39,10 +42,8 @@ export class GenericTableComponent implements OnInit {
 
   onSave(item:any) {
     this.service.editDB(item)
+    item.editState = !item.editState
+
   }
-
-  dataSource = this.service.tempDataSource;
-
-  @ViewChild(MatSort) sort: MatSort;
  
 }
