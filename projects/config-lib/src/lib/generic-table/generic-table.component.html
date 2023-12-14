@@ -34,12 +34,8 @@
         </ng-template>
 
         <ng-template #notEdited>
-            <div *ngIf="!element.counter; else backup">{{element[column]}}</div> 
+            <div>{{element[column]}}</div> 
         </ng-template>
-
-        <ng-template #backup>
-          <div>{{itembackup[column]}}</div>
-      </ng-template>
 
       </td>
     </ng-container>

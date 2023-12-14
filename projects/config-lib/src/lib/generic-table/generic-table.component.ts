@@ -19,7 +19,7 @@ export class GenericTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   dataSource = this.service.tempDataSource;
-  itembackup = null
+  restoreItem = null;
 
   ngOnInit() {
     this.service.path = this.path
@@ -35,9 +35,7 @@ export class GenericTableComponent implements OnInit {
 
   onEdit(item: any) {
     item.editState = !item.editState;
-    this.itembackup = { ...item };
-    console.log(this.itembackup);
-    item.counter = true;
+    this.restoreItem = { ...item };
   }
 
   onDelete(item:any) {
@@ -51,8 +49,12 @@ export class GenericTableComponent implements OnInit {
   }
 
   onCancel(item:any) {
-    console.log(this.itembackup)
     item.editState = !item.editState;
+
+    for(let key of Object.keys(item)) {
+      if(key != "editState" ){
+        item[key] = this.restoreItem[key]
+      }
+    }
   }
- 
 }
