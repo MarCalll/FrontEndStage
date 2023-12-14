@@ -18,6 +18,16 @@ interface stanzeInterface {
 @Injectable()
 export class ConfigService {
 
+  newStanza: stanzeInterface = {
+    id: 0,
+    numeroStanza: '',
+    display: '',
+    ordine: '',
+    letti: '',
+    degenza: '',
+    struttura: ''
+  };
+
   idForDetail$ = new BehaviorSubject<string>(null);
 
   path = "";
@@ -85,6 +95,20 @@ export class ConfigService {
 
   editDB(item: any) {
     this.uploadDB(item);
+  }
+
+  addStanza(newStanza: stanzeInterface) {
+    this.http.post<any>(this.path, newStanza) 
+      .subscribe(
+        response => {
+          console.log('Risposta dal server:', response);
+          this.tempContentDB.push(response);
+          this.tempDataSource.data = this.tempContentDB;
+        },
+        error => {
+          console.error('Errore durante la richiesta POST:', error);
+        }
+      );
   }
 
   uploadDB(item: any) {

@@ -3,39 +3,37 @@
 
     <mat-form-field class="start">
       <mat-label>numeroStanza</mat-label>
-      <input matInput placeholder="">
+      <input matInput placeholder="" [(ngModel)]="serviceAdd.newStanza.numeroStanza" name="numeroStanza">
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>display</mat-label>
-      <input matInput placeholder="">
+      <input matInput placeholder="" [(ngModel)]="serviceAdd.newStanza.display" name="display">
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>ordine</mat-label>
-      <input matInput placeholder="">
+      <input matInput placeholder="" [(ngModel)]="serviceAdd.newStanza.ordine" name="ordine">
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>letti</mat-label>
-      <input matInput placeholder="">
+      <input matInput placeholder="" [(ngModel)]="serviceAdd.newStanza.letti" name="letti">
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>degenza</mat-label>
-      <input matInput placeholder="">
+      <input matInput placeholder="" [(ngModel)]="serviceAdd.newStanza.degenza" name="degenza">
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>struttura</mat-label>
-      <input matInput placeholder="">
+      <input matInput placeholder="" [(ngModel)]="serviceAdd.newStanza.struttura" name="struttura">
     </mat-form-field>
 
-      <button mat-icon-button>
-        <mat-icon>check</mat-icon>
-      </button>
+    <button mat-icon-button (click)="addStanza(serviceAdd.newStanza)">
+      <mat-icon>check</mat-icon>
+    </button>
 
   </div>
-
 </form>
-

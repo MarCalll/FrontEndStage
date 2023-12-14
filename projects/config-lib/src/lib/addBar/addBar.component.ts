@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../store/config.service';
 
 @Component({
   selector: 'config-addBar',
@@ -7,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddBarComponent implements OnInit {
 
-  constructor() { }
+
+
+
+  constructor(protected serviceAdd:ConfigService) { }
 
   ngOnInit() {
 
+  }
+
+  addStanza() {
+    this.serviceAdd.addStanza(this.serviceAdd.newStanza);
   }
 
 }
