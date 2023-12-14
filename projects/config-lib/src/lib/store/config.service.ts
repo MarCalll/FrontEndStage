@@ -20,12 +20,12 @@ export class ConfigService {
 
   newElement: stanzeInterface = {
     id: 0,
-    numeroStanza: '',
-    display: '',
-    ordine: '',
-    letti: '',
-    degenza: '',
-    struttura: ''
+    numeroStanza: null,
+    display: null,
+    ordine: null,
+    letti: null,
+    degenza: null,
+    struttura: null
   };
 
   idForDetail$ = new BehaviorSubject<string>(null);
@@ -37,8 +37,7 @@ export class ConfigService {
   selectedDegenza = "";
   selectedStruttura = "";
   filteredTempContentDB : any[] = [];
-  addState:boolean;
-
+  
   whatsToggled = '';
 
 

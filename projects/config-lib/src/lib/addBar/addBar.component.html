@@ -3,7 +3,7 @@
 
     <mat-form-field class="start">
       <mat-label>numeroStanza</mat-label>
-      <input matInput placeholder="" [(ngModel)]="service.newElement.numeroStanza" name="numeroStanza">
+      <input matInput placeholder="" [(ngModel)]="service.newElement.numeroStanza" name="numeroStanza" [required]>
     </mat-form-field>
 
     <mat-form-field>
@@ -31,8 +31,19 @@
       <input matInput placeholder="" [(ngModel)]="service.newElement.struttura" name="struttura">
     </mat-form-field>
 
-    <button mat-icon-button (click)="addElement()">
-      <mat-icon>check</mat-icon>
+    <button class="green-button" mat-icon-button *ngIf="service.newElement.numeroStanza !== null && 
+     service.newElement.numeroStanza !== '' ;else boxEmpty" (click)="addElement()">
+      <mat-icon >check</mat-icon>
+    </button>
+
+    <ng-template #boxEmpty>
+      <button class="grayed-out-button" mat-icon-button disableRipple>
+        <mat-icon >check</mat-icon>
+      </button>
+    </ng-template>
+
+    <button mat-icon-button (click)="clearBox()">
+      <mat-icon >clear</mat-icon>
     </button>
 
   </div>

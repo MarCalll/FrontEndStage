@@ -8,17 +8,18 @@ import { ConfigService } from '../store/config.service';
 })
 export class AddBarComponent implements OnInit {
 
-
-
-
   constructor(protected service:ConfigService) { }
 
-  ngOnInit() {
+  restoreEmptyElement = { ...this.service.newElement }
 
+  ngOnInit() {
   }
 
-  addElement() {
+  addElement(item:any) {
     this.service.addDB(this.service.newElement);
+  }
+  clearBox() {
+    this.service.newElement =  { ...this.restoreEmptyElement }
   }
 
 }

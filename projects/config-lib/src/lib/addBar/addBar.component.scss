@@ -2,8 +2,27 @@
 .mat-form-field {
     padding-left: 10px;
     font-size: 14px;
+    width: 150px;
 }
 
 .start {
-    padding-left: 10%;
+    padding-left: 18%;
 }
+
+.grayed-out-button {
+    color:gray;
+    background-color: rgba(128, 128, 128, 0.053);
+    cursor:default;
+
+}
+
+
+.green-button {
+    color:rgba(0, 134, 0, 0.344);
+    background-color: rgba(105, 161, 105, 0.185);
+}
+
+.green-button:hover {
+    color:green
+  }
+  
