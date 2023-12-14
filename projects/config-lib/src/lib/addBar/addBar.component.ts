@@ -17,8 +17,8 @@ export class AddBarComponent implements OnInit {
 
   }
 
-  addStanza() {
-    this.service.addStanza(this.service.newElement);
+  addElement() {
+    this.service.addDB(this.service.newElement);
   }
 
 }

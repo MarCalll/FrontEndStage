@@ -97,7 +97,7 @@ export class ConfigService {
     this.uploadDB(item);
   }
 
-  addStanza(newElement: any) {
+  addDB(newElement: any) {
     this.http.post<any>(this.path, newElement) 
       .subscribe(
         response => {
