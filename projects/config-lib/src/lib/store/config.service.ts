@@ -18,7 +18,7 @@ interface stanzeInterface {
 @Injectable()
 export class ConfigService {
 
-  newStanza: stanzeInterface = {
+  newElement: stanzeInterface = {
     id: 0,
     numeroStanza: '',
     display: '',
@@ -97,8 +97,8 @@ export class ConfigService {
     this.uploadDB(item);
   }
 
-  addStanza(newStanza: stanzeInterface) {
-    this.http.post<any>(this.path, newStanza) 
+  addStanza(newElement: any) {
+    this.http.post<any>(this.path, newElement) 
       .subscribe(
         response => {
           console.log('Risposta dal server:', response);

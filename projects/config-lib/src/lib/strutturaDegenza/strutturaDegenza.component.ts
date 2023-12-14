@@ -23,10 +23,4 @@ export class StrutturaDegenzaComponent implements OnInit {
     this.service.filterStrutturaDegenza();
   }
 
-  onAdd() {
-    console.log(this.service.addState)
-    this.service.addState = !this.service.addState
-    console.log(this.service.addState)
-  }
-
 }

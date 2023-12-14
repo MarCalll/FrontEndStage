@@ -11,14 +11,14 @@ export class AddBarComponent implements OnInit {
 
 
 
-  constructor(protected serviceAdd:ConfigService) { }
+  constructor(protected service:ConfigService) { }
 
   ngOnInit() {
 
   }
 
   addStanza() {
-    this.serviceAdd.addStanza(this.serviceAdd.newStanza);
+    this.service.addStanza(this.service.newElement);
   }
 
 }
