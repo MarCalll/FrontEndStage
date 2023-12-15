@@ -13,7 +13,7 @@ export class GenericTableComponent implements OnInit {
 
   constructor(private http: HttpClient, protected service: ConfigService) {}
 
-  @Input() displayedColumns: string[] = [];
+  @Input() displayedColumns: string[];
   @Input() path: string;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -26,6 +26,7 @@ export class GenericTableComponent implements OnInit {
     this.loadTableData();
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+    this.service.displayedColumnsService = this.displayedColumns
   }
 
   loadTableData() {

@@ -5,17 +5,12 @@
     width: 150px;
 }
 
-.start {
-    padding-left: 18%;
-}
-
 .grayed-out-button {
     color:gray;
     background-color: rgba(128, 128, 128, 0.053);
     cursor:default;
 
 }
-
 
 .green-button {
     color:rgba(0, 134, 0, 0.344);
@@ -25,4 +20,10 @@
 .green-button:hover {
     color:green
   }
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
   

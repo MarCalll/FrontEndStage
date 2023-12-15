@@ -10,12 +10,13 @@ export class SearchBarComponent implements OnInit {
   
   dataSource = this.service.tempDataSource;
 
-  
-
-
   constructor(protected service: ConfigService) { }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy(): void {
+    this.dataSource.filter = ""
   }
 
   applyFilter(filterValue: string) {

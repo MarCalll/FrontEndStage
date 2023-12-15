@@ -30,6 +30,7 @@ export class ConfigService {
 
   idForDetail$ = new BehaviorSubject<string>(null);
 
+  displayedColumnsService:string[];
   path = "";
   tempContentDB : any[] = [];
   tempDataSource = new MatTableDataSource<any>();
@@ -71,10 +72,6 @@ export class ConfigService {
     } else {
       this.tempDataSource.data = this.tempContentDB;
     }
-  }
-
-  editButton() {
-    console.log("edit funge")
   }
 
   loadDB() {

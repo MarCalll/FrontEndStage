@@ -1,39 +1,15 @@
 <form>
-  <div>
 
-    <mat-form-field class="start">
-      <mat-label>numeroStanza</mat-label>
-      <input matInput placeholder="" [(ngModel)]="service.newElement.numeroStanza" name="numeroStanza" [required]>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>display</mat-label>
-      <input matInput placeholder="" [(ngModel)]="service.newElement.display" name="display">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>ordine</mat-label>
-      <input matInput placeholder="" [(ngModel)]="service.newElement.ordine" name="ordine">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>letti</mat-label>
-      <input matInput placeholder="" [(ngModel)]="service.newElement.letti" name="letti">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>degenza</mat-label>
-      <input matInput placeholder="" [(ngModel)]="service.newElement.degenza" name="degenza">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>struttura</mat-label>
-      <input matInput placeholder="" [(ngModel)]="service.newElement.struttura" name="struttura">
-    </mat-form-field>
-
-    <button class="green-button" mat-icon-button *ngIf="service.newElement.numeroStanza !== null && 
-     service.newElement.numeroStanza !== '' ;else boxEmpty" (click)="addElement()">
-      <mat-icon >check</mat-icon>
+  <div class="form-container">
+    <ng-container *ngFor="let column of this.service.displayedColumnsService">
+      <mat-form-field *ngIf="column !== 'id' && column !== 'actions'" >
+        <mat-label>{{column}}</mat-label>
+        <input matInput placeholder="" [(ngModel)]="service.newElement[column]" name="{{column}}">
+      </mat-form-field>
+    </ng-container>
+  
+    <button class="green-button" mat-icon-button *ngIf="checkNewElement();else boxEmpty" (click)="addElement()">
+      <mat-icon>check</mat-icon>
     </button>
 
     <ng-template #boxEmpty>
@@ -45,6 +21,6 @@
     <button mat-icon-button (click)="clearBox()">
       <mat-icon >clear</mat-icon>
     </button>
-
   </div>
+
 </form>

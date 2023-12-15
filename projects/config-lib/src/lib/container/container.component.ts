@@ -10,8 +10,6 @@ import { ConfigService } from '../store/config.service';
 })
 export class ContainerComponent implements OnInit {
 
-  
-
   constructor(protected service:ConfigService) { 
 
   }
