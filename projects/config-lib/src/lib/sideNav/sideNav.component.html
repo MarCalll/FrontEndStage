@@ -1,0 +1,22 @@
+<mat-sidenav-container hasBackdrop="false">
+
+  <mat-sidenav opened={{this.service.sidenavState}} mode="side" disableClose>
+
+    <ul>
+      <li></li>
+    </ul>
+    <ul>
+      <li><p routerLink="stanzeLetti">Stanze/letti</p></li>
+    </ul>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <button mat-icon-button (click)="service.toggleSideNavStateService()"><mat-icon><mat-icon>{{this.service.sidenavState?"chevron_left":"chevron_right"}}</mat-icon></mat-icon></button>
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+

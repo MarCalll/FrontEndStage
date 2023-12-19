@@ -1,0 +1,53 @@
+.mat-sidenav-container {
+    height: 100%;
+    width: 100%;
+  }
+
+  .mat-sidenav {
+    width: 200px;
+    background-color: rgba(170, 170, 170, 0.747);;
+  }
+
+  .mat-sidenav-content {
+    width: auto;
+    height: 100%;
+  }
+
+  .indice{
+    background-color:  rgb(54, 119, 211);
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  .indice:hover {
+    background-color:  rgb(29, 64, 112);
+  }
+
+  .indice::before {
+    color: #ffffff;
+    display: inline-block ;
+    width: 1em;
+    margin-left: -1em;
+    margin-right: 0.5em;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .search-bar {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+
+.custom-button {
+  background-color:rgba(170, 170, 170, 0.747);;
+  border-radius: 0%;
+}

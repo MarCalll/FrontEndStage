@@ -1,30 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject} from '@angular/core';
 import { ConfigService } from '../store/config.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({
-  selector: 'config-addBar',
-  templateUrl: './addBar.component.html',
-  styleUrls: ['./addBar.component.scss']
+  selector: 'config-AddDialogBox',
+  templateUrl: './AddDialogBox.component.html',
+  styleUrls: ['./AddDialogBox.component.scss']
 })
-export class AddBarComponent implements OnInit {
+export class AddDialogBoxComponent {
 
-  constructor(protected service:ConfigService) { }
+  constructor(protected service:ConfigService, public dialogRef: MatDialogRef<AddDialogBoxComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
   restoreEmptyElement = { ...this.service.newElement }
 
   ngOnInit() {
-    console.log("init")
   }
 
   ngOnDestroy(): void {
     this.service.newElement =  { ...this.restoreEmptyElement } 
   }
 
-  addElement(item:any) {
-    this.service.addDB(this.service.newElement);
-  }
   clearBox() {
     this.service.newElement =  { ...this.restoreEmptyElement } 
+  }
+
+  addElement(item:any) {
+    this.service.addDB(this.service.newElement);
   }
 
   checkNewElement():boolean {
@@ -36,4 +41,5 @@ export class AddBarComponent implements OnInit {
     }
     return false
   }
+  
 }

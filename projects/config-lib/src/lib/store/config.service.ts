@@ -14,9 +14,11 @@ interface stanzeInterface {
   struttura:string;
 }
 
-
 @Injectable()
 export class ConfigService {
+
+  constructor (protected store: Store<any>,private http: HttpClient) {
+  }
 
   newElement: stanzeInterface = {
     id: 0,
@@ -39,15 +41,19 @@ export class ConfigService {
   selectedStruttura = "";
   filteredTempContentDB : any[] = [];
   
-  whatsToggled = '';
+  degenzeSet: Set<string> = new Set<string>();
+  degenzeArr: string[] = []
 
+  struttureSet: Set<string> = new Set<string>();
+  struttureArr: string[] = []
 
-  constructor (protected store: Store<any>,private http: HttpClient) {
+  public sidenavState:boolean = true
+  public toggleSideNavStateService() {
+    this.sidenavState = !this.sidenavState
   }
 
   getServerAddress(serverUrl: string): string {
     let firstPartPath = '';
-    
     if (serverUrl) {
       if (isDevMode()) {
         firstPartPath = '/Admin';
@@ -59,7 +65,6 @@ export class ConfigService {
       throw new Error('Server url errato!')
     }
     const serverRest = serverUrl +  firstPartPath + '/s';
-
     return serverRest;
   }
 
@@ -78,6 +83,7 @@ export class ConfigService {
     this.http.get<any[]>(this.path).subscribe(data => {
       this.tempContentDB = data;
       this.tempDataSource.data = this.tempContentDB;
+      this.buildDegenzeAndStrutturaArray();
     });
 
   } 
@@ -122,6 +128,13 @@ export class ConfigService {
     } else {
       console.error('L\'oggetto stanza da aggiornare è indefinito o non ha un ID.');
     }
+  }
+
+  buildDegenzeAndStrutturaArray() {
+    this.tempDataSource.data.forEach(ele =>{this.degenzeSet.add(ele['degenza'])}) 
+    this.degenzeArr = Array.from(this.degenzeSet)
+    this.tempDataSource.data.forEach(ele =>{this.struttureSet.add(ele['struttura'])}) 
+    this.struttureArr = Array.from(this.struttureSet)
   }
 
 }

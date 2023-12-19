@@ -4,6 +4,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { MatAutocompleteModule, MatBottomSheetModule, MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatDividerModule, MatExpansionModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatOptionModule, MatRadioModule, MatSelectModule, MatSortModule, MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTreeModule } from '@angular/material';
 import { MomentDateModule } from '@angular/material-moment-adapter';
+import {MatSidenavModule} from '@angular/material/sidenav'; 
+
 @NgModule({
   imports: [
     MatButtonModule,
@@ -34,7 +36,8 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
     MatGridListModule,
     ScrollingModule,
     MatTreeModule,
-    MatOptionModule
+    MatOptionModule,
+    MatSidenavModule
   ],
   exports: [
     MatButtonModule,
@@ -44,6 +47,7 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
     MatCardModule,
     MatListModule,
     MatSelectModule,
+    MatSidenavModule,
     MatOptionModule,
     MatTableModule,
     MatFormFieldModule,

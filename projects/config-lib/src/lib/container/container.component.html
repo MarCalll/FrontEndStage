@@ -1,4 +1,13 @@
-<config-strutturaDegenza></config-strutturaDegenza>
-<config-toolBar></config-toolBar>
+<!--<config-sideNav></config-sideNav>-->
+
+
+<div class="containerOfStuff">
+    <div><config-strutturaDegenza></config-strutturaDegenza></div>
+    <div class="buttons">
+    <config-searchBar></config-searchBar>
+    <config-addRoomButton></config-addRoomButton>
+    </div>
+</div>
+
 <config-generic-table [displayedColumns] = "['id', 'numeroStanza', 'display', 'ordine', 'letti','degenza','struttura']" [path]="'http://localhost:8080/api/stanze'"></config-generic-table>
 

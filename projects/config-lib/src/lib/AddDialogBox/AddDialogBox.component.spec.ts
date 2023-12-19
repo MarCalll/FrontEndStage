@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ToolBarComponent } from './toolBar.component';
+import { AddDialogBoxComponent } from './AddDialogBox.component';
 
-describe('ToolBarComponent', () => {
-  let component: ToolBarComponent;
-  let fixture: ComponentFixture<ToolBarComponent>;
+describe('AddDialogBoxComponent', () => {
+  let component: AddDialogBoxComponent;
+  let fixture: ComponentFixture<AddDialogBoxComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToolBarComponent ]
+      declarations: [ AddDialogBoxComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ToolBarComponent);
+    fixture = TestBed.createComponent(AddDialogBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

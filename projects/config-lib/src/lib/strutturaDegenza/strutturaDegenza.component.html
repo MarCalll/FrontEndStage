@@ -1,11 +1,10 @@
-<div class="outer-container">
+<div>
   <div class="example-container">
     <div class="select-container">
       <mat-form-field>
         <mat-select placeholder="Struttura">
           <mat-option value="option" (click) = "setSelectedStruttura('')">-</mat-option>
-          <mat-option value="option" (click) = "setSelectedStruttura('Bari')">Bari</mat-option>
-          <mat-option value="option" (click) = "setSelectedStruttura('Trani')">Trani</mat-option>
+          <mat-option *ngFor="let struttura of this.service.struttureArr" value="option" (click) = "setSelectedStruttura(struttura)">{{struttura}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -14,17 +13,10 @@
       <mat-form-field>
         <mat-select placeholder="Degenza">
           <mat-option value="option" (click) = "setSelectedDegenza('')">-</mat-option>
-          <mat-option value="option" (click) = "setSelectedDegenza('Chirurgia')">Chirurgia</mat-option>
-          <mat-option value="option" (click) = "setSelectedDegenza('Radiologia')">Radiologia</mat-option>
+          <mat-option *ngFor="let degenza of this.service.degenzeArr" value="option" (click) = "setSelectedDegenza(degenza)">{{degenza}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
-
-    <div class="action-buttons">
-      <config-bedManagementButton></config-bedManagementButton>
-      <config-searchButton></config-searchButton>
-      <config-addRoomButton></config-addRoomButton>
-    </div> 
 
   </div>
 </div>

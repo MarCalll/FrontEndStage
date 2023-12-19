@@ -13,12 +13,12 @@ import { DeleteButtonComponent } from '../tasti/deleteButton/deleteButton.compon
 import { StrutturaDegenzaComponent } from '../strutturaDegenza/strutturaDegenza.component';
 import { AddRoomButtonComponent } from '../tasti/addRoomButton/addRoomButton.component';
 import { BedManagementButtonComponent } from '../tasti/bedManagementButton/bedManagementButton.component';
-import { SearchButtonComponent } from '../tasti/searchButton/searchButton.component';
 import { SaveButtonComponent } from '../tasti/saveButton/saveButton.component';
 import { CancelButtonComponent } from '../tasti/cancelButton/cancelButton.component';
 import { SearchBarComponent } from '../searchBar/searchBar.component';
-import { ToolBarComponent } from '../toolBar/toolBar.component';
-import { AddBarComponent } from '../addBar/addBar.component';
+import { SideNavComponent } from '../sideNav/sideNav.component';
+import { StanzeLettiComponent } from '../StanzeLetti/StanzeLetti.component';
+import { AddDialogBoxComponent } from '../AddDialogBox/AddDialogBox.component';
 
 @NgModule({
   imports: [
@@ -44,15 +44,18 @@ import { AddBarComponent } from '../addBar/addBar.component';
     StrutturaDegenzaComponent,
     AddRoomButtonComponent,
     BedManagementButtonComponent,
-    SearchButtonComponent,
     SaveButtonComponent,
     CancelButtonComponent,
     SearchBarComponent,
-    ToolBarComponent,
-    AddBarComponent
+    SideNavComponent,
+    StanzeLettiComponent,
+    AddDialogBoxComponent
+  ],
+  entryComponents:[
+    AddDialogBoxComponent
   ]
   })
-  
+
 export class ContainerModule { 
   static forRoot(): ModuleWithProviders {
   return {

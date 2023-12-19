@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ConfigService } from '../store/config.service';
 
 @Component({
@@ -6,12 +6,10 @@ import { ConfigService } from '../store/config.service';
   templateUrl: './strutturaDegenza.component.html',
   styleUrls: ['./strutturaDegenza.component.scss']
 })
-export class StrutturaDegenzaComponent implements OnInit {
+export class StrutturaDegenzaComponent {
 
   constructor(protected service :ConfigService) { }
 
-  ngOnInit() {
-  }
 
   setSelectedStruttura(struttura:string) {
     this.service.selectedStruttura = struttura;

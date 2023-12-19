@@ -40,7 +40,7 @@ export class GenericTableComponent implements OnInit {
   }
 
   onDelete(item:any) {
-    this.service.deleteDB(item)
+    this.service.deleteDB(item);
   }
 
   onSave(item:any) {
