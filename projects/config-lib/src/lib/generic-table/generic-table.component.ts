@@ -2,7 +2,11 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import { ConfigService } from '../store/config.service';
- 
+import {MatDialog} from '@angular/material';
+import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.component';
+  
+
+
 @Component({
   selector: 'config-generic-table',
   templateUrl: './generic-table.component.html',
@@ -11,7 +15,7 @@ import { ConfigService } from '../store/config.service';
 
 export class GenericTableComponent implements OnInit {
 
-  constructor(private http: HttpClient, protected service: ConfigService) {}
+  constructor(private http: HttpClient, protected service: ConfigService, protected dialog:MatDialog) {}
 
   @Input() displayedColumns: string[];
   @Input() path: string;
@@ -20,6 +24,7 @@ export class GenericTableComponent implements OnInit {
 
   dataSource = this.service.tempDataSource;
   restoreItem = null;
+  selectedElement: any;
 
   ngOnInit() {
     this.service.path = this.path
@@ -48,6 +53,19 @@ export class GenericTableComponent implements OnInit {
     item.editState = !item.editState
 
   }
+
+  openBedPanel(item: any) {
+    
+    console.log('Dati della riga selezionata:', item);
+
+    this.selectedElement = item;
+
+    const dialogRef = this.dialog.open(BedDialogBoxComponent, {
+      width: '400px', 
+      data: { numeroStanza: this.selectedElement.numeroStanza, degenza: this.selectedElement.degenza }
+    });
+  }
+   
 
   onCancel(item:any) {
     item.editState = !item.editState;

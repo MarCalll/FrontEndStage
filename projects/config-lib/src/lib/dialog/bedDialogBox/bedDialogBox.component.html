@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Configura Letto</h1>
+<div mat-dialog-content>
+  <form class="two-fields-form">
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.numeroStanza" name="numeroStanza" placeholder="Numero Stanza" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.degenza" name="degenza" placeholder="Degenza" disabled>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Chiudi</button>
+</div>

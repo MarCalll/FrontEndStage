@@ -1,5 +1,5 @@
 import { Component, Inject} from '@angular/core';
-import { ConfigService } from '../store/config.service';
+import { ConfigService } from '../../store/config.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({

@@ -12,6 +12,7 @@
       <ng-container *ngIf="column === 'actions'; else notActionsColumn">
 
         <div class="buttons" *ngIf="!element.editState; else isEditing">
+          <config-bedManagementButton (click)="openBedPanel(element)"></config-bedManagementButton>
           <config-editButton (click)="onEdit(element)"></config-editButton>
           <config-deleteButton (click)="onDelete(element)"></config-deleteButton>
         </div>

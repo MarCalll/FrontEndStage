@@ -18,7 +18,9 @@ import { CancelButtonComponent } from '../tasti/cancelButton/cancelButton.compon
 import { SearchBarComponent } from '../searchBar/searchBar.component';
 import { SideNavComponent } from '../sideNav/sideNav.component';
 import { StanzeLettiComponent } from '../StanzeLetti/StanzeLetti.component';
-import { AddDialogBoxComponent } from '../AddDialogBox/AddDialogBox.component';
+import { AddDialogBoxComponent } from '../dialog/AddDialogBox/AddDialogBox.component';
+import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.component';
+
 
 @NgModule({
   imports: [
@@ -42,6 +44,7 @@ import { AddDialogBoxComponent } from '../AddDialogBox/AddDialogBox.component';
     EditButtonComponent,
     DeleteButtonComponent,
     StrutturaDegenzaComponent,
+    BedDialogBoxComponent,
     AddRoomButtonComponent,
     BedManagementButtonComponent,
     SaveButtonComponent,
@@ -52,7 +55,8 @@ import { AddDialogBoxComponent } from '../AddDialogBox/AddDialogBox.component';
     AddDialogBoxComponent
   ],
   entryComponents:[
-    AddDialogBoxComponent
+    AddDialogBoxComponent,
+    BedDialogBoxComponent
   ]
   })
 
