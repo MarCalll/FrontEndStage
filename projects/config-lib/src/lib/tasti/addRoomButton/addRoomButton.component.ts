@@ -13,9 +13,8 @@ export class AddRoomButtonComponent {
 
   constructor(protected service:ConfigService,protected dialog:MatDialog) { }
 
-  openDialog() {
-    this.dialog.open(AddDialogBoxComponent
-    )
+  openAddRoomDialog() {
+    this.dialog.open(AddDialogBoxComponent)
   }
 
 }

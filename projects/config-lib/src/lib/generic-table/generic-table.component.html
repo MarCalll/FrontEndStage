@@ -14,7 +14,7 @@
         <div class="buttons" *ngIf="!element.editState; else isEditing">
           <config-bedManagementButton (click)="openBedPanel(element)"></config-bedManagementButton>
           <config-editButton (click)="onEdit(element)"></config-editButton>
-          <config-deleteButton (click)="onDelete(element)"></config-deleteButton>
+          <config-deleteButton (click)="confirmOnDeletePanel(element)"></config-deleteButton>
         </div>
           
         <ng-template #isEditing>

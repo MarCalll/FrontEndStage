@@ -20,6 +20,7 @@ import { SideNavComponent } from '../sideNav/sideNav.component';
 import { StanzeLettiComponent } from '../StanzeLetti/StanzeLetti.component';
 import { AddDialogBoxComponent } from '../dialog/AddDialogBox/AddDialogBox.component';
 import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.component';
+import { ConfirmDIalogBoxComponent } from '../dialog/confirmDIalogBox/confirmDIalogBox.component';
 
 
 @NgModule({
@@ -52,11 +53,13 @@ import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.compo
     SearchBarComponent,
     SideNavComponent,
     StanzeLettiComponent,
-    AddDialogBoxComponent
+    AddDialogBoxComponent,
+    ConfirmDIalogBoxComponent
   ],
   entryComponents:[
     AddDialogBoxComponent,
-    BedDialogBoxComponent
+    BedDialogBoxComponent,
+    ConfirmDIalogBoxComponent
   ]
   })
 

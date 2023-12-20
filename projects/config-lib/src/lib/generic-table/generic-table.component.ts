@@ -2,8 +2,10 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import { ConfigService } from '../store/config.service';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material';
+
 import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.component';
+import { ConfirmDIalogBoxComponent } from '../dialog/confirmDIalogBox/confirmDIalogBox.component';
   
 
 
@@ -66,7 +68,6 @@ export class GenericTableComponent implements OnInit {
     });
   }
    
-
   onCancel(item:any) {
     item.editState = !item.editState;
 
@@ -76,4 +77,11 @@ export class GenericTableComponent implements OnInit {
       }
     }
   }
+
+  confirmOnDeletePanel(item :any) {
+    this.service.itemToDelete = item;
+    this.dialog.open(ConfirmDIalogBoxComponent)
+  }
+
+
 }

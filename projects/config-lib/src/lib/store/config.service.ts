@@ -47,6 +47,8 @@ export class ConfigService {
   struttureSet: Set<string> = new Set<string>();
   struttureArr: string[] = []
 
+  itemToDelete = null;
+
   public sidenavState:boolean = true
   public toggleSideNavStateService() {
     this.sidenavState = !this.sidenavState
