@@ -1,3 +1,9 @@
-<p>
-  StanzeLetti works!
-</p>
+<div class="containerOfStuff">
+  <div><config-strutturaDegenza></config-strutturaDegenza></div>
+  <div class="buttons">
+  <config-searchBar></config-searchBar>
+  <config-addRoomButton></config-addRoomButton>
+  </div>
+</div>
+
+<config-generic-table [displayedColumns] = "['id', 'numeroStanza', 'display', 'ordine', 'letti','struttura','degenza']" [path]="'http://localhost:8080/api/stanze'"></config-generic-table>

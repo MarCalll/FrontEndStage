@@ -18,14 +18,8 @@ export class BedDialogBoxComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  restoreEmptyElement = { ...this.service.newElement }
-
   ngOnInit() {
     this.service.loadDB();
-  }
-
-  ngOnDestroy(): void {
-    this.service.newElement =  { ...this.restoreEmptyElement } 
   }
 
 }

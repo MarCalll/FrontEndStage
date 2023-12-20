@@ -1,4 +1,4 @@
-import { Component, Inject} from '@angular/core';
+import { Component, Inject, OnInit} from '@angular/core';
 import { ConfigService } from '../../store/config.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
@@ -7,25 +7,21 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
   templateUrl: './AddDialogBox.component.html',
   styleUrls: ['./AddDialogBox.component.scss']
 })
-export class AddDialogBoxComponent {
+export class AddDialogBoxComponent implements OnInit{
 
   constructor(protected service:ConfigService, public dialogRef: MatDialogRef<AddDialogBoxComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
+
+  value="clear me"
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  restoreEmptyElement = { ...this.service.newElement }
-
   ngOnInit() {
   }
 
-  ngOnDestroy(): void {
-    this.service.newElement =  { ...this.restoreEmptyElement } 
-  }
-
   clearBox() {
-    this.service.newElement =  { ...this.restoreEmptyElement } 
+    this.service.newElement =  { ...this.service.EmptyElement } 
   }
 
   addElement(item:any) {

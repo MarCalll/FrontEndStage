@@ -5,6 +5,7 @@
       <mat-form-field *ngIf="column !== 'id' && column !== 'actions'" >
         <mat-label>{{column}}</mat-label>
         <input matInput placeholder="" [(ngModel)]="service.newElement[column]" name="{{column}}">
+
       </mat-form-field>
     </ng-container>
   

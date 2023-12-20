@@ -60,11 +60,8 @@ export class GenericTableComponent implements OnInit {
     
     console.log('Dati della riga selezionata:', item);
 
-    this.selectedElement = item;
-
     const dialogRef = this.dialog.open(BedDialogBoxComponent, {
-      width: '400px', 
-      data: { numeroStanza: this.selectedElement.numeroStanza, degenza: this.selectedElement.degenza }
+      data: { numeroStanza: item.numeroStanza, degenza: item.degenza }
     });
   }
    

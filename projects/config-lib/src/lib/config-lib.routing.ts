@@ -7,8 +7,7 @@ const routes: Routes = [
     path: '',
     component: ConfigLibComponent,
     children: [
-      {path: '', loadChildren: () => import("./container/container.module").then(m => m.ContainerModule)},
-      {path: 'stanzeLetti', component: StanzeLettiComponent},
+      {path: '', loadChildren: () => import("./container/container.module").then(m => m.ContainerModule)}
     ]
   }
 

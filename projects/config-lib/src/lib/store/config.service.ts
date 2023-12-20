@@ -10,8 +10,8 @@ interface stanzeInterface {
   display:string;
   ordine:string;
   letti:string;
-  degenza:string;
   struttura:string;
+  degenza:string;
 }
 
 @Injectable()
@@ -20,14 +20,24 @@ export class ConfigService {
   constructor (protected store: Store<any>,private http: HttpClient) {
   }
 
+  EmptyElement: stanzeInterface = {
+    id: 0,
+    numeroStanza: null,
+    display: null,
+    ordine: null,
+    letti: null,
+    struttura: null,
+    degenza: null,
+  };
+
   newElement: stanzeInterface = {
     id: 0,
     numeroStanza: null,
     display: null,
     ordine: null,
     letti: null,
+    struttura: null,
     degenza: null,
-    struttura: null
   };
 
   idForDetail$ = new BehaviorSubject<string>(null);
