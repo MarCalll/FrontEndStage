@@ -24,6 +24,18 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 //sidenav
-$colorePrincipale: rgba(170, 170, 170, 0.747);
-$coloreSezioniMenu :  rgb(54, 119, 211);
-$coloreInHover :  rgb(29, 64, 112);
+$colorePrincipale: rgb(11, 26, 45);
+$coloreSezioniMenu :  rgba(255, 255, 255, 0.185);
+$coloreInHover :  rgb(16, 38, 67);
+
+
+::ng-deep mat-form-field.mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0;
+}
+
+::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+::ng-deep .mat-form-field-subscript-wrapper {
+  display: none;
+}

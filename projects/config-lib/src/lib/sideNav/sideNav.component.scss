@@ -1,12 +1,20 @@
 @import '../style/index.scss';
 
+$sidenavwidth: 169.5px;
+
 .mat-sidenav-container {
     height: 100%;
     width: 100%;
   }
 
   .mat-sidenav {
-    width: 200px;
+    width: 170px; // Imposta la larghezza desiderata per la sidenav
+    height: 100%;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     background-color: $colorePrincipale;
   }
 
@@ -20,8 +28,6 @@
     color: #ffffff;
     padding: 5px;
     border-radius: 2px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
   }
 
   .indice:hover {
@@ -36,20 +42,31 @@
     margin-right: 0.5em;
   }
 
+
   ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
   }
 
-  .search-bar {
-    display: flex;
-    flex-direction: column;
+  .sideNavSearch {
+    background-color: rgba(255, 255, 255, 0.316);
+    color:#ffffff;
+    margin: 0%;
+    height: 40px;
+    width:$sidenavwidth;
+  }
 
+  .sideNavSearchIcon {
+    color:white;
+  }
+
+  .searchInput {
+    padding-bottom: 6px;
+    width:$sidenavwidth;
   }
 
 
-.custom-button {
-  background-color: $colorePrincipale;
-  border-radius: 0%;
-}
+
+
+

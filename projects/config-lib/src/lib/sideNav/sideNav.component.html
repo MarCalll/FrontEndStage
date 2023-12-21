@@ -1,10 +1,10 @@
-<mat-sidenav-container hasBackdrop="false">
+<mat-sidenav-container hasBackdrop="false" [@.disabled]="true">
   <mat-sidenav opened={{this.service.sidenavState}} mode="side" disableClose>
     <ul>
       <li>
-        <mat-form-field appearance="side" class="search-bar">
-          <mat-icon matPrefix>search</mat-icon>
-          <input matInput placeholder="Cerca voce nel menu" (input)="searchMenuInput($event)">
+        <mat-form-field appearance="side" class="sideNavSearch">
+          <mat-icon class="sideNavSearchIcon" matPrefix>search</mat-icon>
+          <input matInput class="searchInput" placeholder="Cerca voce nel menu" (input)="searchMenuInput($event)">
         </mat-form-field>
       </li>
       <li *ngFor="let elementoLista of service.listaMenu" class="indice" (click)="setTopBarTitle(elementoLista.nome)" routerLink="{{elementoLista.path}}" >{{elementoLista.nome}}</li>

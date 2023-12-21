@@ -1,7 +1,7 @@
-<mat-toolbar class="toolbarstyle">
+<mat-toolbar class="toptoolbarstyle">
   <mat-toolbar-row>
     <span>
-      <button mat-button (click) = "this.service.toggleSideNavStateService()" class="custom-button">
+      <button mat-button (click) = "this.service.toggleSideNavStateService()" disableRipple>
         <mat-icon>{{this.service.sidenavState?"chevron_left":"chevron_right"}}</mat-icon>
       </button>
     </span>

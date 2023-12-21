@@ -1,26 +1,17 @@
 @import '../style/index.scss';
 
-.toolbarstyle {
-  background-color: $coloreInHover;
-  color:rgb(255, 255, 255);
-  height: 70px;
+.toptoolbarstyle {
+  background-color: $colorePrincipale;
+  color: rgb(255, 255, 255);
+  min-height: 2px;
+  height: 40px;
+  padding-left: 0%;
 }
 
 .spacer{
   flex: 1 1 auto;
 }
 
-.example-icon {
-  padding: 0 14px;
-}
 
-.example-spacer {
-  flex: 1 1 auto;
-}
-
-.mat-toolbar-row {
-    text-align: right;
-    width: 100%;
-}
 
 

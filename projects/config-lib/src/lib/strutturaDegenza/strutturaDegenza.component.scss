@@ -1,25 +1,15 @@
-.example-container {
+
+.strutturaDegenza {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
-  
-  .select-container {
-    margin-right: 10px;
-  }
-  
-  mat-form-field {
-    width: 150px;
-  }
-    
-  .example-container {
-    display: flex;
-  }
-  
-  .select-container {
-    margin-right: 10px;
-  }
-  
   .mat-form-field {
-    width: 300px; 
+    width: 200px; 
+  }
+  
+  .spacerDegenza {
+    width: auto;
+    padding-left: 2px;
   }
