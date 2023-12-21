@@ -7,10 +7,10 @@ const routes: Routes = [
     path: '',
     component: ConfigLibComponent,
     children: [
-      {path: '', loadChildren: () => import("./container/container.module").then(m => m.ContainerModule)}
+      { path: '', loadChildren: () => import("./container/container.module").then(m => m.ContainerModule) },
+      { path: 'stanzeletti', component: StanzeLettiComponent }
     ]
   }
-
 ];
 
 export const ConfigLibRoutes = RouterModule.forChild(routes);
