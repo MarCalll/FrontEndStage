@@ -17,3 +17,13 @@ html, body {
   font-size: 12px;
   overflow: hidden !important;
   }
+
+  /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+//sidenav
+$colorePrincipale: rgba(170, 170, 170, 0.747);
+$coloreSezioniMenu :  rgb(54, 119, 211);
+$coloreInHover :  rgb(29, 64, 112);

@@ -21,7 +21,7 @@ import { StanzeLettiComponent } from '../StanzeLetti/StanzeLetti.component';
 import { AddDialogBoxComponent } from '../dialog/AddDialogBox/AddDialogBox.component';
 import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.component';
 import { ConfirmDIalogBoxComponent } from '../dialog/confirmDIalogBox/confirmDIalogBox.component';
-import { ConfigLibRoutes } from '../config-lib.routing';
+import { ToptoolbarComponent } from '../toptoolbar/toptoolbar.component';
 
 @NgModule({
   imports: [
@@ -29,15 +29,14 @@ import { ConfigLibRoutes } from '../config-lib.routing';
     SharedModule,
     MaterialModule,
     MatPaginatorModule,
-    
-    
     RouterModule.forChild([
       {
         path: '', // Route vuota per rendere ContainerComponent la route principale
-        component: ContainerComponent
-      }, {
-        path: 'stanzeletti', 
-        component: StanzeLettiComponent
+        component: ContainerComponent,
+        children:[{
+          path: 'stanzeletti', 
+          component: StanzeLettiComponent
+        }]
       }
     ])
   ],
@@ -57,7 +56,8 @@ import { ConfigLibRoutes } from '../config-lib.routing';
     SideNavComponent,
     StanzeLettiComponent,
     AddDialogBoxComponent,
-    ConfirmDIalogBoxComponent
+    ConfirmDIalogBoxComponent,
+    ToptoolbarComponent
   ],
   entryComponents:[
     AddDialogBoxComponent,

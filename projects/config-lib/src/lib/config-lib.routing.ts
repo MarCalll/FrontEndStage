@@ -8,7 +8,6 @@ const routes: Routes = [
     component: ConfigLibComponent,
     children: [
       { path: '', loadChildren: () => import("./container/container.module").then(m => m.ContainerModule) },
-      { path: 'stanzeletti', component: StanzeLettiComponent }
     ]
   }
 ];

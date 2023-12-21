@@ -13,4 +13,27 @@ export class SideNavComponent implements OnInit {
   ngOnInit() {
   }
 
+  topBarTitle:string
+
+  listaMenu = this.service.listaMenu
+  backuplistaMenu = this.listaMenu
+  parolaRicercata = null
+
+  searchMenuInput(evento:any) {
+    this.parolaRicercata = evento.target.value.toLowerCase()
+    this.listaMenu = []
+
+    for(let voce of this.backuplistaMenu) {
+
+      if(voce.nome.toLowerCase().includes(this.parolaRicercata)) {
+        this.listaMenu.push(voce)
+        console.log(voce)
+        }
+      }
+    }
+
+  setTopBarTitle (item:string) {
+    this.service.voceSelezionata = item
+  }
+
 }

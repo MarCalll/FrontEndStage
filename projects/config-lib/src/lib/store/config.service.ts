@@ -59,10 +59,14 @@ export class ConfigService {
 
   itemToDelete = null;
 
-  public sidenavState:boolean = true
-  public toggleSideNavStateService() {
-    this.sidenavState = !this.sidenavState
-  }
+  listaMenu = [
+    { nome: "Stanze/Letti", path: "stanzeletti" }
+    ]
+    public sidenavState:boolean = true
+    public toggleSideNavStateService() {
+      this.sidenavState = !this.sidenavState
+    }
+    voceSelezionata = "Vuoto"
 
   getServerAddress(serverUrl: string): string {
     let firstPartPath = '';

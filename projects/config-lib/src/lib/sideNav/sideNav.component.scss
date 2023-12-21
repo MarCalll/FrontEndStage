@@ -1,3 +1,5 @@
+@import '../style/index.scss';
+
 .mat-sidenav-container {
     height: 100%;
     width: 100%;
@@ -5,7 +7,7 @@
 
   .mat-sidenav {
     width: 200px;
-    background-color: rgba(170, 170, 170, 0.747);;
+    background-color: $colorePrincipale;
   }
 
   .mat-sidenav-content {
@@ -14,7 +16,7 @@
   }
 
   .indice{
-    background-color:  rgb(54, 119, 211);
+    background-color: $coloreSezioniMenu;
     color: #ffffff;
     padding: 5px;
     border-radius: 2px;
@@ -23,7 +25,7 @@
   }
 
   .indice:hover {
-    background-color:  rgb(29, 64, 112);
+    background-color: $coloreInHover;
   }
 
   .indice::before {
@@ -48,6 +50,6 @@
 
 
 .custom-button {
-  background-color:rgba(170, 170, 170, 0.747);;
+  background-color: $colorePrincipale;
   border-radius: 0%;
 }
