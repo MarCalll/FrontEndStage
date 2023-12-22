@@ -60,13 +60,15 @@ export class ConfigService {
   itemToDelete = null;
 
   listaMenu = [
-    { nome: "Stanze/Letti", path: "stanzeletti" }
+    { nome: "Stanze/Letti", path: "stanzeletti" },
+
     ]
+
     public sidenavState:boolean = true
     public toggleSideNavStateService() {
       this.sidenavState = !this.sidenavState
     }
-    voceSelezionata = "Vuoto"
+    voceSelezionata = ""
 
   getServerAddress(serverUrl: string): string {
     let firstPartPath = '';

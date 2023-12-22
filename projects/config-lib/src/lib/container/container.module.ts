@@ -22,6 +22,7 @@ import { AddDialogBoxComponent } from '../dialog/AddDialogBox/AddDialogBox.compo
 import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.component';
 import { ConfirmDIalogBoxComponent } from '../dialog/confirmDIalogBox/confirmDIalogBox.component';
 import { ToptoolbarComponent } from '../toptoolbar/toptoolbar.component';
+import { EditDialogBoxComponent } from '../dialog/editDialogBox/editDialogBox.component';
 
 @NgModule({
   imports: [
@@ -57,12 +58,14 @@ import { ToptoolbarComponent } from '../toptoolbar/toptoolbar.component';
     StanzeLettiComponent,
     AddDialogBoxComponent,
     ConfirmDIalogBoxComponent,
-    ToptoolbarComponent
+    ToptoolbarComponent,
+    EditDialogBoxComponent,
   ],
   entryComponents:[
     AddDialogBoxComponent,
     BedDialogBoxComponent,
-    ConfirmDIalogBoxComponent
+    ConfirmDIalogBoxComponent,
+    EditDialogBoxComponent
   ]
   })
 

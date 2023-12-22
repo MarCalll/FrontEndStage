@@ -28,9 +28,9 @@ export class SideNavComponent implements OnInit {
       if(voce.nome.toLowerCase().includes(this.parolaRicercata)) {
         this.listaMenu.push(voce)
         console.log(voce)
-        }
       }
     }
+  }
 
   setTopBarTitle (item:string) {
     this.service.voceSelezionata = item

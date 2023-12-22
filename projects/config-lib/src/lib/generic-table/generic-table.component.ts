@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material';
 
 import { BedDialogBoxComponent } from '../dialog/bedDialogBox/bedDialogBox.component';
 import { ConfirmDIalogBoxComponent } from '../dialog/confirmDIalogBox/confirmDIalogBox.component';
+import { EditDialogBoxComponent } from '../dialog/editDialogBox/editDialogBox.component';
   
 
 
@@ -19,13 +20,12 @@ export class GenericTableComponent implements OnInit {
 
   constructor(private http: HttpClient, protected service: ConfigService, protected dialog:MatDialog) {}
 
-  @Input() displayedColumns: string[];
+  @Input() displayedColumns: string[]
   @Input() path: string;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   dataSource = this.service.tempDataSource;
-  restoreItem = null;
   selectedElement: any;
 
   ngOnInit() {
@@ -41,40 +41,25 @@ export class GenericTableComponent implements OnInit {
     this.displayedColumns.push('actions');
   }
 
-  onEdit(item: any) {
-    item.editState = !item.editState;
-    this.restoreItem = { ...item };
-  }
-
-  onDelete(item:any) {
-    this.service.deleteDB(item);
-  }
-
-  onSave(item:any) {
-    this.service.editDB(item)
-    item.editState = !item.editState
-
+  openEditRoomDialog(item: any) {
+    this.dialog.open(EditDialogBoxComponent, {
+      data: { 
+        id: item.id,
+        numeroStanza:item.numeroStanza,
+        display:item.display,
+        ordine:item.ordine,
+        letti:item.letti,
+        struttura:item.struttura,
+        degenza:item.degenza}
+    });
   }
 
   openBedPanel(item: any) {
-    
-    console.log('Dati della riga selezionata:', item);
-
-    const dialogRef = this.dialog.open(BedDialogBoxComponent, {
+    this.dialog.open(BedDialogBoxComponent, {
       data: { numeroStanza: item.numeroStanza, degenza: item.degenza }
     });
   }
    
-  onCancel(item:any) {
-    item.editState = !item.editState;
-
-    for(let key of Object.keys(item)) {
-      if(key != "editState" ){
-        item[key] = this.restoreItem[key]
-      }
-    }
-  }
-
   confirmOnDeletePanel(item :any) {
     this.service.itemToDelete = item;
     this.dialog.open(ConfirmDIalogBoxComponent)

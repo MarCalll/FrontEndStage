@@ -1,6 +1,6 @@
+<h1 mat-dialog-title>Aggiungi Stanza</h1>
 <form>
-
-  <div class="form-container">
+  <div>
     <ng-container *ngFor="let column of this.service.displayedColumnsService">
       <mat-form-field *ngIf="column !== 'id' && column !== 'actions'" >
         <mat-label>{{column}}</mat-label>

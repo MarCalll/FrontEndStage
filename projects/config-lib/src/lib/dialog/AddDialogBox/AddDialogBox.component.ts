@@ -9,9 +9,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 })
 export class AddDialogBoxComponent implements OnInit{
 
-  constructor(protected service:ConfigService, public dialogRef: MatDialogRef<AddDialogBoxComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
-
-  value="clear me"
+  constructor(protected service:ConfigService, public dialogRef: MatDialogRef<AddDialogBoxComponent>) {}
 
   onNoClick(): void {
     this.dialogRef.close();

@@ -11,31 +11,16 @@
 
       <ng-container *ngIf="column === 'actions'; else notActionsColumn">
 
-        <div class="buttons" *ngIf="!element.editState; else isEditing">
+        <div class="buttons">
           <config-bedManagementButton (click)="openBedPanel(element)"></config-bedManagementButton>
-          <config-editButton (click)="onEdit(element)"></config-editButton>
+          <config-editButton (click)="openEditRoomDialog(element)"></config-editButton>
           <config-deleteButton (click)="confirmOnDeletePanel(element)"></config-deleteButton>
         </div>
-          
-        <ng-template #isEditing>
-          <config-saveButton (click)="onSave(element)"></config-saveButton>
-          <config-cancelButton (click)="onCancel(element)"></config-cancelButton>
-        </ng-template>
-
+        
       </ng-container>
 
       <ng-template #notActionsColumn>
-        <div *ngIf="element.editState === true && column !== 'id'; else notEdited">
-          <form class="form">
-            <mat-form-field class="field">
-              <input matInput [(ngModel)]="element[column]" name="{{column}}">
-            </mat-form-field>
-           </form>
-        </div>
-      </ng-template>
-
-      <ng-template #notEdited>
-          <div>{{element[column]}}</div> 
+        <div>{{element[column]}}</div> 
       </ng-template>
 
     </td>

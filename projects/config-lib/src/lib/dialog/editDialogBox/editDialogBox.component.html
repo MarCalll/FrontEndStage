@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Modifica Stanza</h1>
+<div mat-dialog-content>
+  <form >
+    <ng-container *ngFor="let column of this.service.displayedColumnsService">
+      <mat-form-field *ngIf="column !== 'id' && column !== 'actions'" >
+        <input matInput [(ngModel)]="data[column]" name="{{column}}" placeholder={{column}}>
+      </mat-form-field>
+    </ng-container>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <div style="padding-left: 42%;">
+    <button mat-button (click)="onNoClick()" >Chiudi</button>
+  </div>
+  <div style="padding-right: 42%;">
+    <button mat-button (click)="onYesClick(data)" >Salva</button>
+  </div>  
+</div>

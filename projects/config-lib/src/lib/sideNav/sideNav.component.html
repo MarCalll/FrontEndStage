@@ -7,7 +7,7 @@
           <input matInput class="searchInput" placeholder="Cerca voce nel menu" (input)="searchMenuInput($event)">
         </mat-form-field>
       </li>
-      <li *ngFor="let elementoLista of service.listaMenu" class="indice" (click)="setTopBarTitle(elementoLista.nome)" routerLink="{{elementoLista.path}}" >{{elementoLista.nome}}</li>
+      <li *ngFor="let elementoLista of listaMenu" class="indice" (click)="setTopBarTitle(elementoLista.nome)" routerLink="{{elementoLista.path}}" >{{elementoLista.nome}}</li>
     </ul>
   </mat-sidenav>
   <mat-sidenav-content>

@@ -1,7 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { ConfigService } from '../../store/config.service';
 import {MatDialog} from '@angular/material';
-import { StrutturaDegenzaComponent } from '../../strutturaDegenza/strutturaDegenza.component';
 import { AddDialogBoxComponent } from '../../dialog/AddDialogBox/AddDialogBox.component';
 
 @Component({

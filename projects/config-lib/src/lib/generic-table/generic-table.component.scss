@@ -1,34 +1,28 @@
-  table {
-    width: 100%;
+@import '../style/index.scss';
 
-  }
-  
-  .mat-form-field {
-    font-size: 10px;
-    width: 100%;
-  }
-  
-  td, th, a {
-    width: auto;
-    font-size: 14px;
-  }
+table {
+  width: 100%;
+}
 
-  .cell {
-    width: 150px;
-  }
+.mat-form-field {
+  font-size: 10px;
+  width: 35px;
+}
 
-  .form {
-    width: auto;
-  }
+td, th, a {
+  max-width: 35px;  // Imposta la larghezza massima della cella
+  overflow: hidden; // Nasconde il testo che supera la larghezza massima
+  font-size: 13px;
+}
 
-  
-  .field {
-    width: 75px;
-  }
+.cell {
+  font-size: 14px;
+}
 
-  .paginator {
-    display: flex;
-    justify-content: center;
-  }
+.paginator {
+  display: flex;
+  justify-content: center;
+}
+
 
 
